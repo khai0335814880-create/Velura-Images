@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velura — Đăng nhập</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --cream:        #E8F4FF;
+      --ink:          #2A2522;
+      --muted:        #6B635D;
+      --soft:         #8C857E;
+      --terracotta:   #C97B63;
+      --terracotta-h: #b36a53;
+      --tab-bg:       #F4E4DC;
+      --field-bg:     #F3F3F5;
+      --line:         #E8DFD6;
+      --facebook:     #8AACF5;
+      --facebook-h:   #7296e0;
+
+      --stage-w: 1172px;
+      --stage-h: 715px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ---------- Stage (Figma canvas 1172×715) ---------- */
+    .stage {
+      position: relative;
+      width: var(--stage-w);
+      height: var(--stage-h);
+      background: var(--cream);
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .bg-texture {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
+      object-fit: cover;
+    }
+
+    .product {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .product--8 { left: -22px;  top: 7px;   width: 1239px; height: 697px; }
+    .product--3 { left: 33px;   top: 145px; width: 279px;  height: 492px; }
+    .product--6 { left: 887px;  top: -23px; width: 285px;  height: 493px; }
+    .product--1 { left: -78px;  top: 231px; width: 328px;  height: 492px; }
+    .product--5 { left: 911px;  top: 231px; width: 369px;  height: 492px; }
+    .product--4 { left: 789px;  top: 214px; width: 279px;  height: 492px; }
+
+    .brand-logo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 134px;
+      height: 121px;
+      z-index: 2;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ---------- Login card ---------- */
+    .login-card {
+      position: absolute;
+      left: 362px;
+      top: 12px;
+      width: 448px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 16px;
+      outline: 0.8px solid var(--line);
+      outline-offset: -0.8px;
+      box-shadow:
+        0 4px 6px -4px rgba(0, 0, 0, 0.10),
+        0 10px 15px -3px rgba(0, 0, 0, 0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      z-index: 5;
+    }
+
+    .login-card__head { text-align: center; }
+    .login-card__title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 48px;
+      color: var(--ink);
+    }
+    .login-card__subtitle {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      color: var(--muted);
+    }
+
+    /* ---------- Tabs ---------- */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-top: 32px;
+      padding: 4px;
+      background: var(--tab-bg);
+      border-radius: 10px;
+    }
+    .tab {
+      flex: 1 1 0;
+      height: 36px;
+      border: none;
+      border-radius: 4px;
+      background: transparent;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--soft);
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .tab--active {
+      background: #fff;
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    /* ---------- Fields ---------- */
+    .fields { margin-top: 24px; }
+    .field  { margin-top: 16px; }
+    .field:first-child { margin-top: 0; }
+    .field__label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: var(--ink);
+    }
+    .field__control {
+      position: relative;
+      margin-top: 8px;
+    }
+    .field__input {
+      width: 100%;
+      height: 46.6px;
+      padding: 0 16px;
+      background: var(--field-bg);
+      border: none;
+      border-radius: 10px;
+      outline: 0.8px solid var(--line);
+      outline-offset: -0.8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      transition: outline-color 0.2s ease, background-color 0.2s ease;
+    }
+    .field__input::placeholder { color: rgba(42, 37, 34, 0.5); }
+    .field__input:focus {
+      outline-color: var(--terracotta);
+      background: #fff;
+    }
+    .field--password .field__input { padding-right: 40px; }
+    .field__toggle {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+    }
+
+    /* ---------- Options row ---------- */
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+    }
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--soft);
+      cursor: pointer;
+      user-select: none;
+    }
+    .remember input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--terracotta);
+      cursor: pointer;
+    }
+    .forgot {
+      color: var(--terracotta);
+      text-decoration: none;
+    }
+    .forgot:hover { text-decoration: underline; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background-color 0.2s ease;
+    }
+    .btn--primary {
+      height: 52px;
+      margin-top: 24px;
+      background: var(--terracotta);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+    .btn--primary:hover { background: var(--terracotta-h); }
+
+    .oauth {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .btn--facebook {
+      width: 168px;
+      height: 48px;
+      padding: 0 75px;
+      background: var(--facebook);
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .btn--facebook:hover { background: var(--facebook-h); }
+    .btn--guest {
+      width: 164px;
+      height: 48px;
+      padding: 0 38px;
+      background: var(--terracotta);
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .btn--guest:hover { background: var(--terracotta-h); }
+
+    /* ---------- Footer ---------- */
+    .signup {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      color: var(--muted);
+    }
+    .signup a {
+      margin-left: 4px;
+      color: var(--terracotta);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      text-decoration: none;
+    }
+    .signup a:hover { text-decoration: underline; }
+
+    /* ---------- Responsive: scale the whole stage down ---------- */
+    @media (max-width: 1212px), (max-height: 755px) {
+      body { overflow: auto; }
+      .stage {
+        transform-origin: top center;
+        transform: scale(min(
+          calc((100vw - 24px) / 1172),
+          calc((100vh - 24px) / 715)
+        ));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" role="main" aria-label="Đăng nhập Velura">
+    <img class="bg-texture" src="images/bg-texture.png" alt="" aria-hidden="true" />
+
+    <img class="product product--8" src="images/image-8.png" alt="" aria-hidden="true" />
+    <img class="product product--3" src="images/image-3.png" alt="" aria-hidden="true" />
+    <img class="product product--6" src="images/image-6.png" alt="" aria-hidden="true" />
+    <img class="product product--1" src="images/image-1.png" alt="" aria-hidden="true" />
+    <img class="product product--5" src="images/image-5.png" alt="" aria-hidden="true" />
+    <img class="product product--4" src="images/image-4.png" alt="" aria-hidden="true" />
+
+    <img class="brand-logo" src="images/logo.png" alt="Velura" />
+
+    <form class="login-card" action="#" method="post" onsubmit="event.preventDefault();">
+      <header class="login-card__head">
+        <h1 class="login-card__title">Chào mừng bạn trở lại<br />với Velura</h1>
+        <p class="login-card__subtitle">Đăng nhập để tiếp tục mua sắm</p>
+      </header>
+
+      <div class="tabs" role="tablist" aria-label="Phương thức đăng nhập">
+        <button type="button" class="tab" role="tab" aria-selected="false">Email</button>
+        <button type="button" class="tab tab--active" role="tab" aria-selected="true">Số điện thoại</button>
+      </div>
+
+      <div class="fields">
+        <div class="field">
+          <label class="field__label" for="phone">Số điện thoại</label>
+          <div class="field__control">
+            <input
+              class="field__input"
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="000 111 222 333"
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div class="field field--password">
+          <label class="field__label" for="password">Mật khẩu</label>
+          <div class="field__control">
+            <input
+              class="field__input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Nhập mật khẩu"
+              autocomplete="current-password"
+            />
+            <button class="field__toggle" type="button" aria-label="Hiển thị mật khẩu">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip-eye)">
+                  <path d="M1.37468 7.768C1.31912 7.91767 1.31912 8.08232 1.37468 8.232C1.91581 9.54409 2.83435 10.666 4.01386 11.4554C5.19336 12.2448 6.58071 12.6663 8.00001 12.6663C9.41932 12.6663 10.8067 12.2448 11.9862 11.4554C13.1657 10.666 14.0842 9.54409 14.6253 8.232C14.6809 8.08232 14.6809 7.91767 14.6253 7.768C14.0842 6.4559 13.1657 5.33402 11.9862 4.5446C10.8067 3.75517 9.41932 3.33374 8.00001 3.33374C6.58071 3.33374 5.19336 3.75517 4.01386 4.5446C2.83435 5.33402 1.91581 6.4559 1.37468 7.768Z" stroke="#6B635D" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z" stroke="#6B635D" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                  <clipPath id="clip-eye"><rect width="16" height="16" fill="white"/></clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="options">
+        <label class="remember">
+          <input type="checkbox" name="remember" />
+          <span>Ghi nhớ đăng nhập</span>
+        </label>
+        <a class="forgot" href="#">Quên mật khẩu?</a>
+      </div>
+
+      <button class="btn btn--primary" type="submit">Đăng nhập</button>
+
+      <div class="oauth">
+        <button class="btn btn--facebook" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="#0A29F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Facebook
+        </button>
+        <button class="btn btn--guest" type="button">Tiếp tục với Guest</button>
+      </div>
+
+      <p class="signup">Chưa có tài khoản? <a href="#">Đăng ký ngay</a></p>
+    </form>
+  </main>
+</body>
+</html>
