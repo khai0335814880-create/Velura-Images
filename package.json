@@ -1,0 +1,18 @@
+{
+  "name": "velura",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Velura — E-commerce website (HTML5 + CSS3 + Vanilla JS + AI Chatbot)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --host"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
