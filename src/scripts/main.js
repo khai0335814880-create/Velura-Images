@@ -74,6 +74,13 @@
     });
   });
 
+  /* AI style chips */
+  document.querySelectorAll(".ai-chip").forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      chip.classList.toggle("is-selected");
+    });
+  });
+
   /* OTP inputs — auto focus next */
   var otpInputs = document.querySelectorAll(".otp-input");
   if (otpInputs.length) {

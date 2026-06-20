@@ -1,4 +1,4 @@
-﻿body.page-signin {
+body.page-signin {
   background: var(--cream);
   display: flex;
   align-items: center;
@@ -12,7 +12,8 @@
   width: min(var(--stage-w), 100vw);
   height: min(var(--stage-h), calc(100vh - 48px));
   background: var(--cream);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .signin-stage .bg-texture {
