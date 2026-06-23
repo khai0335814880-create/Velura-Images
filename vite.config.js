@@ -10,13 +10,24 @@ export default defineConfig({
     rollupOptions: {
       input: {
         signin:           resolve(__dirname, "src/pages/auth/signin.html"),
+        signup:           resolve(__dirname, "src/pages/auth/signup.html"),
+        forgotPassword:   resolve(__dirname, "src/pages/auth/forgot-password.html"),
+        resetPassword:    resolve(__dirname, "src/pages/auth/reset-password.html"),
         paymentFailed:    resolve(__dirname, "src/pages/checkout/payment-failed.html"),
         shippingPayment:  resolve(__dirname, "src/pages/checkout/shipping-payment.html"),
         orderConfirm:     resolve(__dirname, "src/pages/checkout/order-confirm.html"),
         paymentConfirm:   resolve(__dirname, "src/pages/checkout/payment-confirm.html"),
         otpVerify:        resolve(__dirname, "src/pages/checkout/otp-verify.html"),
         paymentGuest:     resolve(__dirname, "src/pages/checkout/payment-guest.html"),
-        paymentUser:      resolve(__dirname, "src/pages/checkout/payment-user.html")
+        paymentUser:      resolve(__dirname, "src/pages/checkout/payment-user.html"),
+        aiSuggestions:    resolve(__dirname, "src/pages/ai/suggestions.html"),
+        returnRequest:    resolve(__dirname, "src/pages/account/return-request.html"),
+        blog:             resolve(__dirname, "src/pages/blog/blog.html"),
+        about:            resolve(__dirname, "src/pages/about/about.html"),
+        cart:             resolve(__dirname, "src/pages/cart/cart.html"),
+        wishlist:         resolve(__dirname, "src/pages/wishlist/wishlist.html"),
+        trackOrder:       resolve(__dirname, "src/pages/account/track-order.html"),
+        orderDetail:      resolve(__dirname, "src/pages/account/order-detail.html")
       }
     }
   },

@@ -1,0 +1,494 @@
+/* ============================================================
+   Velura — Return Request Page Styles
+   Supports fluid responsive layout (max-width: 1488px)
+   ============================================================ */
+
+.page-return {
+  background: #fbf7f2;
+}
+
+/* Constrain all containers on the page to match the system max-width (1488px) */
+.page-return .container {
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Return Page Wrapper */
+.return-page {
+  padding: 32px 0 48px;
+}
+
+.return-form-wrapper {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back button navigation */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #8c857e;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+.btn-back:hover {
+  color: #c97b63;
+}
+
+/* Page Header */
+.return-header {
+  margin-bottom: 32px;
+}
+
+.return-header h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #2a2522;
+  margin: 0 0 8px;
+}
+
+.return-header p {
+  font-size: 0.875rem;
+  color: #6b635d;
+  margin: 0;
+}
+
+/* Form Sections */
+.return-section {
+  background: #ffffff;
+  border: 1px solid #eee2d6;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.return-section h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #2a2522;
+  margin: 0 0 20px;
+  border-bottom: 1px solid #f4e4dc;
+  padding-bottom: 12px;
+}
+
+/* Selection Lists (Stacked vertically matching Figma) */
+.order-selection-list,
+.product-selection-list,
+.method-selection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Selection Card Item styling */
+.selection-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid #eee2d6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selection-card:hover {
+  border-color: #c97b63;
+  box-shadow: 0 8px 24px rgba(201, 123, 99, 0.05);
+}
+
+.selection-card.is-selected {
+  background: #f4e4dc;
+  border-color: #c97b63;
+}
+
+.selection-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.selection-card__content strong {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #2a2522;
+}
+
+.selection-card__content span {
+  font-size: 0.75rem;
+  color: #6b635d;
+}
+
+/* Radio Button Design */
+.radio-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c97b63;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.selection-card.is-selected .radio-indicator {
+  background: #c97b63;
+}
+
+.radio-indicator__inner {
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: none;
+}
+
+.selection-card.is-selected .radio-indicator__inner {
+  display: block;
+}
+
+/* Checkbox Design */
+.checkbox-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #eee2d6;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: transparent;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.selection-card.is-selected .checkbox-indicator {
+  background: #c97b63;
+  border-color: #c97b63;
+  color: #ffffff;
+}
+
+/* Product Info Container inside card */
+.selection-card__product-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.product-img-wrapper {
+  width: 80px;
+  height: 80px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.product-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-details strong {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #2a2522;
+}
+
+.product-details span {
+  font-size: 0.75rem;
+  color: #6b635d;
+}
+
+.product-details .product-price {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #c97b63;
+  margin-top: 2px;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #2a2522;
+  margin-bottom: 8px;
+}
+
+.form-help-text {
+  font-size: 0.75rem;
+  color: #6b635d;
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: #f3f3f5;
+  border: 1px solid #eee2d6;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  color: #2a2522;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #c97b63;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(201, 123, 99, 0.03);
+}
+
+.form-textarea {
+  height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #6b635d;
+  pointer-events: none;
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 40px;
+}
+
+/* Image Upload Container */
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  background: #f4e4dc;
+  color: #c97b63;
+  border: 1px solid #e8c9be;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+
+.btn-upload:hover {
+  background: #e8c9be;
+}
+
+.file-preview-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.file-preview-item {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #eee2d6;
+}
+
+.file-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-file-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(42, 37, 34, 0.7);
+  color: #ffffff;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.remove-file-btn:hover {
+  background: rgba(212, 24, 61, 0.9);
+}
+
+/* Policies Box */
+.policy-box {
+  background: #ffffff;
+  border: 1px solid #eee2d6;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.policy-box__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #2a2522;
+}
+
+.policy-icon {
+  color: #c97b63;
+  flex-shrink: 0;
+}
+
+.policy-list {
+  padding-left: 20px;
+  list-style-type: disc;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 8px 24px;
+}
+
+.policy-list li {
+  font-size: 0.75rem;
+  color: #8c857e;
+  line-height: 1.5;
+}
+
+/* Actions Section */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.btn-cancel,
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 40px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-cancel {
+  background: #ececf0;
+  color: #2a2522;
+}
+
+.btn-cancel:hover {
+  background: #e2e2e8;
+}
+
+.btn-submit {
+  background: #c97b63;
+  color: #ffffff;
+  flex: 1;
+  max-width: 420px;
+}
+
+.btn-submit:hover {
+  background: #b36a53;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .return-page {
+    padding: 24px 0 32px;
+  }
+
+  .policy-list {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .btn-cancel,
+  .btn-submit {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .return-section {
+    padding: 16px;
+  }
+
+  .return-header h1 {
+    font-size: 1.625rem;
+  }
+
+  .selection-card {
+    padding: 12px 16px;
+  }
+
+  .product-img-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+}
