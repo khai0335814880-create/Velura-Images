@@ -23,12 +23,22 @@
 @import "./components/_summary.css";
 @import "./components/_review.css";
 @import "./components/_otp-modal.css";
+@import "./components/_quiz-modal.css";
+@import "./components/_chatbot.css";
+@import "./components/_search-overlay.css";
+@import "./components/_policy-tabs.css";
+@import "./components/_contact-page.css";
+@import "./components/_product-grid.css";
 
 /* Pages */
 @import "./pages/_signin.css";
 @import "./pages/_checkout.css";
 @import "./pages/_success.css";
 @import "./pages/_payment-failed.css";
+@import "./pages/_home.css";
+@import "./pages/_product.css";
+@import "./pages/_product-detail.css";
+@import "./pages/_chatbot-page.css";
 
 /* Responsive overrides (must be last) */
 @import "./responsive.css";

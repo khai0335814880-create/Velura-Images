@@ -1,0 +1,162 @@
+/* ============================================================
+   Velura — Dedicated Chatbot Page Stylesheet
+   ============================================================ */
+
+.chatbot-page {
+  display: flex;
+  height: 70vh;
+  min-height: 600px;
+  background: #FAF8F6;
+  font-family: "DM Sans", sans-serif;
+  border-top: 1px solid var(--line);
+}
+
+.chatbot-page__sidebar {
+  width: 25%;
+  border-right: 1px solid var(--line);
+  background: #fff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.chatbot-page__main {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #FAF8F6;
+  box-sizing: border-box;
+}
+
+/* Chat box layout override inside full-page chatbot */
+.chatbot-box--page {
+  position: static !important;
+  width: 100% !important;
+  max-width: 800px;
+  height: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: all !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--line) !important;
+}
+
+/* Sidebar Recommendations Content */
+.chatbot-sidebar-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--tab-bg);
+  padding-bottom: 8px;
+  font-family: "Playfair Display", serif;
+}
+
+.chatbot-recommendations {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0;
+}
+
+.chatbot-recommendations--empty {
+  font-size: 0.875rem;
+  color: var(--soft);
+  text-align: center;
+  padding: 32px 16px;
+  line-height: 1.5;
+}
+
+.recommendation-item {
+  display: flex;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #fff;
+  text-decoration: none;
+}
+
+.recommendation-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--terracotta);
+}
+
+.recommendation-item__img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.recommendation-item__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recommendation-item__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.recommendation-item:hover .recommendation-item__title {
+  color: var(--terracotta);
+}
+
+.recommendation-item__price {
+  font-size: 0.8125rem;
+  color: var(--terracotta);
+  font-weight: 700;
+}
+
+/* Sidebar Recommendations Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chatbot-recommendations.fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+/* ---------- Responsive layout adjustment ---------- */
+@media (max-width: 768px) {
+  .chatbot-page {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .chatbot-page__sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 20px;
+    max-height: 300px;
+  }
+  
+  .chatbot-page__main {
+    width: 100%;
+    padding: 20px;
+    height: 520px;
+  }
+}
