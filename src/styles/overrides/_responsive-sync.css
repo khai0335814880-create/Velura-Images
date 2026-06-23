@@ -22,12 +22,12 @@ body:not(.page-signin) {
   background: var(--checkout-bg);
 }
 
-.page-shell > main {
+.page-shell>main {
   flex: 1;
 }
 
-.page-shell > .site-header,
-.page-shell > .site-footer {
+.page-shell>.site-header,
+.page-shell>.site-footer {
   background: #fff;
 }
 

@@ -1,5 +1,28 @@
+import { initGallery } from "./modules/gallery.js";
+import { initTabs } from "./modules/tabs.js";
+import { initQuantity } from "./modules/quantity.js";
+import { initOptions } from "./modules/options.js";
+import { initChatbot } from "./modules/chatbot.js";
+import { initSearchOverlay } from "./modules/search-overlay.js";
+import { initPolicyTabs } from "./modules/policy-tabs.js";
+import { initContactForm } from "./modules/contact-form.js";
+import { initVideoControl } from "./modules/video-control.js";
+import { initProductCatalog } from "./modules/product-catalog.js";
+
 (function () {
   "use strict";
+
+  // Khởi tạo các module
+  initGallery();
+  initTabs();
+  initQuantity();
+  initOptions();
+  initChatbot();
+  initSearchOverlay();
+  initPolicyTabs();
+  initContactForm();
+  initVideoControl();
+  initProductCatalog();
 
   /* Mobile navigation */
   var menuToggle = document.querySelector(".menu-toggle");
@@ -122,4 +145,115 @@
       e.preventDefault();
     });
   });
+
+  /* Style Quiz Modal */
+  var quizModal = document.getElementById("quiz-modal");
+  if (quizModal) {
+    var openBtn = document.querySelector(".js-open-quiz");
+    var closeBtns = quizModal.querySelectorAll(".js-close-quiz");
+    var overlay = quizModal.querySelector(".quiz-modal__overlay");
+
+    if (openBtn) {
+      openBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        quizModal.classList.add("quiz-modal--active");
+      });
+    }
+
+    closeBtns.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        quizModal.classList.remove("quiz-modal--active");
+      });
+    });
+
+    if (overlay) {
+      overlay.addEventListener("click", function () {
+        quizModal.classList.remove("quiz-modal--active");
+      });
+    }
+  }
+
+  /* Filter Sidebar Toggle (Mobile) */
+  var filterSidebar = document.getElementById("filter-sidebar");
+  if (filterSidebar) {
+    var filterToggles = document.querySelectorAll(".js-filter-toggle");
+    filterToggles.forEach(function (toggle) {
+      toggle.addEventListener("click", function () {
+        filterSidebar.classList.toggle("filter-sidebar--open");
+      });
+    });
+  }
+
+  /* Color Option Toggle */
+  var colorOptions = document.querySelectorAll(".color-option");
+  colorOptions.forEach(function (option) {
+    option.addEventListener("click", function () {
+      option.classList.toggle("is-selected");
+    });
+  });
+
+  /* Size Option Toggle */
+  var sizeOptions = document.querySelectorAll(".size-option");
+  sizeOptions.forEach(function (option) {
+    option.addEventListener("click", function () {
+      option.classList.toggle("is-active");
+    });
+  });
+
+  /* Add to Cart Micro-Interaction */
+  var addBtns = document.querySelectorAll(".card__add-btn");
+  var cartBadge = document.querySelector(".cart-badge");
+  addBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      if (cartBadge) {
+        var count = parseInt(cartBadge.textContent, 10) || 0;
+        cartBadge.textContent = count + 1;
+        
+        // Micro-animation for cart badge
+        cartBadge.style.transform = "scale(1.3)";
+        cartBadge.style.transition = "transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+        setTimeout(function () {
+          cartBadge.style.transform = "scale(1)";
+        }, 150);
+      }
+    });
+  });
+
+
+
+  /* Wishlist Heart Toggle */
+  var heartBtns = document.querySelectorAll(".card__wishlist-btn");
+  heartBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation(); // Ngăn click lan tới card sản phẩm
+      btn.classList.toggle("is-active");
+      
+      // Micro-animation khi click
+      btn.style.transform = "scale(1.25)";
+      btn.style.transition = "transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+      setTimeout(function () {
+        btn.style.transform = "scale(1)";
+      }, 150);
+    });
+  });
+
+  /* Product Card Color Dot Selection */
+  var cardColorDots = document.querySelectorAll(".card__color-dot");
+  cardColorDots.forEach(function (dot) {
+    dot.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation(); // Ngăn click lan tới card sản phẩm
+      var parent = dot.closest(".card__colors");
+      if (parent) {
+        parent.querySelectorAll(".card__color-dot").forEach(function (d) {
+          d.classList.remove("is-active");
+        });
+      }
+      dot.classList.add("is-active");
+    });
+  });
 })();
+
+

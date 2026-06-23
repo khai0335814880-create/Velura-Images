@@ -1,0 +1,248 @@
+import { mockHistoryData, mockRecommendedProducts } from "../data/chat-history.js";
+
+export function initChatbot() {
+  var chatbotWidget = document.querySelector(".chatbot-widget");
+  var chatbotPage = document.querySelector(".chatbot-page");
+  if (!chatbotWidget && !chatbotPage) return; // Safe Execution check
+
+  var chatContainer = chatbotWidget || chatbotPage;
+
+  var togglers = chatContainer.querySelectorAll(".js-chatbot-toggle");
+  var form = chatContainer.querySelector(".js-chatbot-form");
+  var input = chatContainer.querySelector(".js-chatbot-input");
+  var messagesContainer = chatContainer.querySelector(".chatbot-messages");
+  var switcher = chatContainer.querySelector(".js-chatbot-state-select");
+  var recsContainer = chatContainer.querySelector(".js-chatbot-recommendations");
+
+  var currentMode = "guest";
+
+  // Toggle chatbot box (only runs on pages where floating widget togglers exist)
+  togglers.forEach(function (toggle) {
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      chatContainer.classList.toggle("chatbot-widget--open");
+      
+      // Auto focus input when opened
+      if (chatContainer.classList.contains("chatbot-widget--open") && input) {
+        setTimeout(function () {
+          input.focus();
+        }, 300);
+        
+        // Auto scroll to bottom when opened
+        if (messagesContainer) {
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      }
+    });
+  });
+
+  // Handle Menu Trigger Click
+  var menuTriggers = document.querySelectorAll(".js-menu-chatbot-trigger");
+  menuTriggers.forEach(function (trigger) {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log("Menu Chatbot Triggered");
+      console.log("Navigating to dedicated Chatbot page...");
+      window.location.href = "/src/pages/chatbot.html";
+    });
+  });
+
+  // Helper escape HTML helper
+  function escapeHtml(text) {
+    return String(text).replace(/[&<>"']/g, function (s) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[s];
+    });
+  }
+
+  // Format time as AM/PM
+  function formatTime(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    return hours + ':' + minutes + ' ' + ampm;
+  }
+
+  // Render messages to container
+  function renderMessages(messages, smooth) {
+    if (!messagesContainer) return;
+    messagesContainer.innerHTML = "";
+    
+    messages.forEach(function (msg) {
+      var msgEl = document.createElement("div");
+      var senderClass = msg.sender === "user" ? "chatbot-message--user" : "chatbot-message--bot";
+      var historyClass = msg.isHistory ? " chatbot-message--history" : "";
+      msgEl.className = "chatbot-message " + senderClass + historyClass;
+      
+      msgEl.innerHTML = '<div class="chatbot-message__text">' + escapeHtml(msg.text) + '</div><span class="chatbot-message__time">' + escapeHtml(msg.time) + '</span>';
+      messagesContainer.appendChild(msgEl);
+    });
+
+    // Auto scroll to bottom
+    if (smooth) {
+      messagesContainer.scrollTo({
+        top: messagesContainer.scrollHeight,
+        behavior: "smooth"
+      });
+    } else {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+  }
+
+  // Render recommendations in sidebar
+  function renderRecommendations() {
+    if (!recsContainer) return;
+
+    // Reset animation by removing class
+    recsContainer.classList.remove("fade-in");
+    recsContainer.innerHTML = "";
+
+    if (currentMode === "guest") {
+      recsContainer.innerHTML = '<div class="chatbot-recommendations--empty">Chưa có gợi ý phong cách cho bạn. Hãy trò chuyện với AI Stylist hoặc chuyển sang User Mode để xem gợi ý cá nhân hóa!</div>';
+    } else {
+      if (mockRecommendedProducts && mockRecommendedProducts.length) {
+        mockRecommendedProducts.forEach(function (prod) {
+          var itemEl = document.createElement("a");
+          itemEl.className = "recommendation-item";
+          itemEl.href = prod.link;
+          
+          itemEl.innerHTML = 
+            '<img src="' + prod.image + '" alt="' + escapeHtml(prod.title) + '" class="recommendation-item__img" />' +
+            '<div class="recommendation-item__info">' +
+              '<h4 class="recommendation-item__title">' + escapeHtml(prod.title) + '</h4>' +
+              '<span class="recommendation-item__price">' + escapeHtml(prod.price) + '</span>' +
+            '</div>';
+            
+          recsContainer.appendChild(itemEl);
+        });
+      } else {
+        recsContainer.innerHTML = '<div class="chatbot-recommendations--empty">Không có gợi ý sản phẩm nào.</div>';
+      }
+    }
+
+    // Trigger reflow to restart css animation
+    void recsContainer.offsetWidth;
+    recsContainer.classList.add("fade-in");
+  }
+
+  // Load chat messages based on current mode
+  function loadChat(smooth) {
+    var storedHistory = localStorage.getItem("chatHistory");
+    var historyObj = { guest: [], user: [] };
+    if (storedHistory) {
+      try {
+        historyObj = JSON.parse(storedHistory);
+      } catch (e) {
+        // ignore
+      }
+    }
+    if (!historyObj) historyObj = { guest: [], user: [] };
+    if (!historyObj.guest) historyObj.guest = [];
+    if (!historyObj.user) historyObj.user = [];
+
+    var messagesToRender = [];
+
+    if (currentMode === "guest") {
+      // Guest welcome message
+      var welcomeMsg = {
+        sender: "bot",
+        text: "Chào bạn, AI Stylist của Velura có thể giúp gì cho bạn hôm nay?",
+        time: "17:05", // Default welcome time
+        isHistory: false
+      };
+      messagesToRender = [welcomeMsg].concat(historyObj.guest);
+    } else {
+      // User mock history + user session history
+      messagesToRender = mockHistoryData.concat(historyObj.user);
+    }
+
+    renderMessages(messagesToRender, smooth);
+    renderRecommendations();
+  }
+
+  // Set up switcher dropdown
+  if (switcher) {
+    var savedMode = localStorage.getItem("chatbotStateMode");
+    if (savedMode) {
+      switcher.value = savedMode;
+      currentMode = savedMode;
+    } else {
+      currentMode = switcher.value || "guest";
+    }
+
+    switcher.addEventListener("change", function () {
+      currentMode = switcher.value;
+      localStorage.setItem("chatbotStateMode", currentMode);
+      loadChat(false);
+    });
+  }
+
+  // Initialize chatbot messages list on startup
+  loadChat(false);
+
+  // Handle messages submit
+  if (form && input && messagesContainer) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var text = input.value.trim();
+      if (!text) return;
+
+      var userTimeStr = formatTime(new Date());
+      var newMsg = { sender: "user", text: text, time: userTimeStr, isHistory: false };
+
+      // Save to localStorage
+      var storedHistory = localStorage.getItem("chatHistory");
+      var historyObj = { guest: [], user: [] };
+      if (storedHistory) {
+        try {
+          historyObj = JSON.parse(storedHistory);
+        } catch (e) {}
+      }
+      if (!historyObj) historyObj = { guest: [], user: [] };
+      if (!historyObj.guest) historyObj.guest = [];
+      if (!historyObj.user) historyObj.user = [];
+
+      historyObj[currentMode].push(newMsg);
+      localStorage.setItem("chatHistory", JSON.stringify(historyObj));
+
+      input.value = "";
+      loadChat(false);
+
+      // Simulated Bot Reply after 1 second delay
+      setTimeout(function () {
+        var botTimeStr = formatTime(new Date());
+        var botMsg = {
+          sender: "bot",
+          text: "Cảm ơn tin nhắn của bạn! AI Stylist của Velura đang phân tích yêu cầu. Bạn có quan tâm đến set đồ len mới nhất hay gợi ý dáng váy đầm thiết kế cao cấp không ạ?",
+          time: botTimeStr,
+          isHistory: false
+        };
+
+        // Save bot reply to localStorage
+        var storedHistoryObj = localStorage.getItem("chatHistory");
+        var historyObjUpdate = { guest: [], user: [] };
+        if (storedHistoryObj) {
+          try {
+            historyObjUpdate = JSON.parse(storedHistoryObj);
+          } catch (e) {}
+        }
+        if (!historyObjUpdate) historyObjUpdate = { guest: [], user: [] };
+        if (!historyObjUpdate.guest) historyObjUpdate.guest = [];
+        if (!historyObjUpdate.user) historyObjUpdate.user = [];
+
+        historyObjUpdate[currentMode].push(botMsg);
+        localStorage.setItem("chatHistory", JSON.stringify(historyObjUpdate));
+
+        loadChat(true);
+      }, 1000);
+    });
+  }
+}

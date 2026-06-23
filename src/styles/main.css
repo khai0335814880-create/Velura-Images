@@ -23,6 +23,12 @@
 @import "./components/_summary.css";
 @import "./components/_review.css";
 @import "./components/_otp-modal.css";
+@import "./components/_quiz-modal.css";
+@import "./components/_chatbot.css";
+@import "./components/_search-overlay.css";
+@import "./components/_policy-tabs.css";
+@import "./components/_contact-page.css";
+@import "./components/_product-grid.css";
 
 /* Pages */
 @import "./pages/_signin.css";
@@ -37,6 +43,23 @@
 @import "./pages/_wishlist.css";
 @import "./pages/_track-order.css";
 @import "./pages/_order-detail.css";
+
+/* Các trang từ nhánh feature/optimize-product-pages */
+@import "./pages/_home.css";
+@import "./pages/_product.css";
+@import "./pages/_product-detail.css";
+@import "./pages/_chatbot-page.css";
+
+/* Các trang mới gộp từ nhánh main */
+@import "./pages/_ai-suggestions.css";
+@import "./pages/_return-request.css";
+@import "./pages/_blog.css";
+@import "./pages/_about.css";
+@import "./pages/_cart.css";
+@import "./pages/_wishlist.css";
+@import "./pages/_track-order.css";
+@import "./pages/_order-detail.css";
+
 
 /* Responsive overrides (must be last) */
 @import "./responsive.css";
