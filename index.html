@@ -1,76 +1,34 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Velura — Thời trang thông minh cho phái đẹp hiện đại</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
+
 <body>
+  <!-- BỔ SUNG: OVERLAY LỊCH SỬ TRÒ CHUYỆN CHO WIDGET -->
+  <div class="chatbot-history-overlay">
+    <!-- Nội dung sẽ được JavaScript tự động điền -->
+  </div>
+
   <div class="page-shell">
     <!-- SITE HEADER -->
-    <header class="site-header">
-      <div class="container">
-        <div class="site-header__top">
-          <a href="/index.html" class="site-header__logo">
-            <img src="/src/assets/images/logo.png" alt="Velura" width="84" height="76" />
-          </a>
-          
-          <label class="site-header__search">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="7.33" cy="7.33" r="5.33" stroke="#6B635D" stroke-width="1.33"/>
-              <path d="M14 14l-2.87-2.87" stroke="#6B635D" stroke-width="1.33" stroke-linecap="round"/>
-            </svg>
-            <input class="js-search-input" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm" />
-          </label>
-          
-          <div class="site-header__actions">
-            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-            <button class="icon-btn" type="button" aria-label="Yêu thích">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z" stroke="#2A2522" stroke-width="1.67"/>
-              </svg>
-            </button>
-            <button class="icon-btn" type="button" aria-label="Giỏ hàng">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M2 3h2.5l2.7 12.36a2 2 0 0 0 1.95 1.57h8.6a2 2 0 0 0 1.96-1.61L21.5 7H6" stroke="#2A2522" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="10" cy="20.5" r="1.4" stroke="#2A2522" stroke-width="1.6"/>
-                <circle cx="17" cy="20.5" r="1.4" stroke="#2A2522" stroke-width="1.6"/>
-              </svg>
-              <span class="cart-badge">3</span>
-            </button>
-            <a class="icon-btn" href="/src/pages/auth/signin.html" aria-label="Tài khoản">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M10 9.17a3.33 3.33 0 100-6.67 3.33 3.33 0 000 6.67zM15.83 17.5v-1.67a3.33 3.33 0 00-3.33-3.33H7.5a3.33 3.33 0 00-3.33 3.33V17.5" stroke="#2A2522" stroke-width="1.67"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-        <nav class="site-header__nav" aria-label="Chính">
-          <a href="/index.html" class="is-active">Trang chủ</a>
-          <a href="#">Sản phẩm</a>
-          <a href="#">Gợi ý AI</a>
-          <a href="#" class="js-menu-chatbot-trigger">Chatbot</a>
-          <a href="#">Blog</a>
-          <a href="#">Về chúng tôi</a>
-        </nav>
-      </div>
-    </header>
+    <load src="/src/components/header.html" />
 
     <!-- MAIN HOMEPAGE CONTENT -->
     <main>
       <!-- HERO VIDEO SECTION -->
       <section class="hero">
         <div class="hero__video-container">
-          <video autoplay loop muted playsinline id="hero-video">
+          <video autoplay loop playsinline id="hero-video">
             <source src="/src/assets/videos/hero-bg.mp4" type="video/mp4">
           </video>
         </div>
@@ -78,27 +36,31 @@
         <div class="hero__content">
           <div class="hero__badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
             <span>Bộ sưu tập mới 2026</span>
           </div>
           <h1 class="hero__title">Vẻ đẹp vượt thời gian</h1>
-          <p class="hero__description">Velura mang đến những sản phẩm thời trang nữ thiết kế cao cấp, giúp bạn tự tin tỏa sáng với phong cách riêng biệt.</p>
+          <p class="hero__description">Velura mang đến những sản phẩm thời trang nữ thiết kế cao cấp, giúp bạn tự tin
+            tỏa sáng với phong cách riêng biệt.</p>
           <div class="hero__buttons">
             <a href="#" class="btn btn--accent">Khám phá ngay</a>
-            <button class="btn btn--outline-white hero__btn--quiz js-open-quiz" type="button">Style Quiz</button>
+            <a href="/src/pages/ai/style-quiz.html" class="btn btn--outline-white hero__btn--quiz">Style Quiz</a>
           </div>
         </div>
-        <button class="hero__mute-btn js-hero-mute-btn" type="button" aria-label="Bật âm thanh video">
-          <svg class="hero__mute-icon hero__mute-icon--off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="hero__audio-toggle" id="js-audio-toggle" type="button" aria-label="Bật âm thanh video">
+          <svg class="hero__audio-icon hero__audio-icon--off" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <line x1="23" y1="9" x2="17" y2="15"></line>
             <line x1="17" y1="9" x2="23" y2="15"></line>
           </svg>
-          <svg class="hero__mute-icon hero__mute-icon--on hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="hero__audio-icon hero__audio-icon--on hidden" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
           </svg>
+          <span class="hero__audio-text">Bật âm thanh</span>
         </button>
       </section>
 
@@ -110,10 +72,12 @@
         </div>
         <div class="categories-section__grid">
           <!-- Top Category -->
-          <a href="#" class="category-card">
+          <a href="/src/pages/products/list.html?category=top" class="category-card">
             <div class="category-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path d="M4 8l2-4h12l2 4M4 8h16M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M18.6 5.8l-3.2-1C14.7 6.1 13.5 7 12 7S9.3 6.1 8.6 4.8l-3.2 1c-.8.2-1.4 1-1.4 1.8v3.6c0 .8.6 1.4 1.4 1.4h1.7V20c0 1.1.9 2 2 2h9c1.1 0 2-.9 2-2V12.6h1.7c.8 0 1.4-.6 1.4-1.4V7.6c-.1-.8-.7-1.6-1.5-1.8z" />
               </svg>
             </div>
             <span class="category-card__name">Top</span>
@@ -121,10 +85,12 @@
           </a>
 
           <!-- Bottom Category -->
-          <a href="#" class="category-card">
+          <a href="/src/pages/products/list.html?category=pants" class="category-card">
             <div class="category-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path d="M6 3h12l2 18-5-1-3-4-3 4-5 1z"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 3h10l1.5 18h-4.5L12 12l-2 9H5.5L7 3z" />
+                <path d="M7 7h10" />
               </svg>
             </div>
             <span class="category-card__name">Bottom</span>
@@ -132,10 +98,12 @@
           </a>
 
           <!-- Dress Category -->
-          <a href="#" class="category-card">
+          <a href="/src/pages/products/list.html?category=dress" class="category-card">
             <div class="category-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path d="M12 2a4 4 0 0 0-4 4v2.5a5 5 0 0 0-1 3v8.5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V11.5a5 5 0 0 0-1-3V6a4 4 0 0 0-4-4z"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3c0 2 1.5 3 3 3s3-1 3-3M6 6c1.5 1 2 3 2 5v1L4 21h16l-4-9v-1c0-2 .5-4 2-5L12 4 6 6z" />
+                <path d="M8 13h8" />
               </svg>
             </div>
             <span class="category-card__name">Dress</span>
@@ -143,10 +111,12 @@
           </a>
 
           <!-- Set Category -->
-          <a href="#" class="category-card">
+          <a href="/src/pages/products/list.html?category=set" class="category-card">
             <div class="category-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path d="M3 6h7M3 10h7M3 14h7M14 6h7M14 10h7M14 14h7M7 18h10"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 7a2.5 2.5 0 1 1 2-2.5" />
+                <path d="M2 17l10-10 10 10H2z" />
               </svg>
             </div>
             <span class="category-card__name">Set</span>
@@ -154,10 +124,14 @@
           </a>
 
           <!-- Accessories Category -->
-          <a href="#" class="category-card">
+          <a href="/src/pages/products/list.html?category=accessories" class="category-card">
             <div class="category-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path d="M16 8a4 4 0 0 0-8 0v3h8V8zm-11 3h14a1 1 0 0 1 1 1v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a1 1 0 0 1 1-1z"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 10V6a6 6 0 0 1 12 0v4" />
+                <rect x="3" y="10" width="18" height="11" rx="2" />
+                <path d="M12 13v3" />
+                <circle cx="12" cy="14.5" r="0.5" fill="currentColor" />
               </svg>
             </div>
             <span class="category-card__name">Accessories</span>
@@ -165,10 +139,13 @@
           </a>
 
           <!-- Shoes Category -->
-          <a href="#" class="category-card">
+          <a href="/src/pages/products/list.html?category=shoes" class="category-card">
             <div class="category-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path d="M4 18h12.5a2.5 2.5 0 0 0 2.5-2.5V8a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-.5.5H4a2 2 0 0 0-2 2 2 2 0 0 0 2 2z"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 18h-8L7.5 13 4 14.5V17c0 .6.4 1 1 1h16v-1z" />
+                <path d="M21 11.5c-2.5 0-5.5 2-7.5 4.5" />
+                <path d="M18 18v3" />
               </svg>
             </div>
             <span class="category-card__name">Shoes</span>
@@ -191,121 +168,270 @@
             </svg>
           </a>
         </div>
-        
+
         <div class="products-section__grid">
           <!-- Product 1 -->
           <article class="product-card">
-            <div class="product-card__image-container">
+            <div class="product-card__img-wrapper">
               <span class="product-card__badge product-card__badge--best">Bán chạy</span>
-              <img src="/src/assets/images/product-1.png" alt="Áo sơ mi lụa pastel (blue)" />
-              <div class="product-card__actions">
-                <a href="#" class="product-card__btn product-card__btn--detail">Xem chi tiết</a>
-                <button class="product-card__btn product-card__btn--wishlist" aria-label="Yêu thích">
-                  <svg width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </button>
+              <a href="/src/pages/products/detail.html" class="product-card__img-link">
+                <img src="/src/assets/images/product-1.png" alt="Áo sơ mi lụa pastel" class="product-card__img" />
+              </a>
+              <!-- ❤️ Wishlist: luôn hiển thị -->
+              <button class="btn-icon product-card__btn-wishlist card__wishlist-btn" type="button"
+                title="Thêm vào Wishlist">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </button>
+              <!-- 🔲 Xem chi tiết: hiện khi hover vào ảnh -->
+              <div class="product-card__img-hover">
+                <a href="/src/pages/products/detail.html" class="btn-detail">Xem chi tiết</a>
               </div>
             </div>
+
             <div class="product-card__info">
               <div class="product-card__rating">
                 <span class="product-card__rating-star">
                   <svg width="12" height="12" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
                 </span>
                 <span>4.8</span>
                 <span>(127)</span>
               </div>
-              <a href="#" class="product-card__title">Áo sơ mi lụa pastel (blue)</a>
-              <span class="product-card__price">1,290,000đ</span>
+              <a href="/src/pages/products/detail.html" class="product-card__title-link">
+                <h3 class="product-card__title">Áo sơ mi lụa pastel (blue)</h3>
+              </a>
+              <!-- ⚪ Color dots: tĩnh, khoá -->
+              <div class="product-card__colors">
+                <span class="product-card__color-dot" style="background-color: #E8DFD6;" title="Kem"></span>
+                <span class="product-card__color-dot" style="background-color: #89A894;" title="Xanh rêu"></span>
+                <span class="product-card__color-dot" style="background-color: #2A2522;" title="Đen"></span>
+              </div>
+              <div class="product-card__price-row">
+                <span class="product-card__price">1.290.000đ</span>
+              </div>
+            </div>
+            <!-- 🛍️ Actions: luôn hiển thị -->
+            <div class="product-card__actions">
+              <a href="/src/pages/checkout/shipping-payment.html" class="btn-buy">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Mua ngay
+              </a>
+              <a href="/src/pages/cart/cart.html" class="product-card__btn-cart" title="Thêm vào giỏ hàng">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </a>
             </div>
           </article>
 
           <!-- Product 2 -->
           <article class="product-card">
-            <div class="product-card__image-container">
+            <div class="product-card__img-wrapper">
               <span class="product-card__badge product-card__badge--new">Mới về</span>
-              <img src="/src/assets/images/product-2.png" alt="Đầm lụa dáng dài Premium" />
-              <div class="product-card__actions">
-                <a href="#" class="product-card__btn product-card__btn--detail">Xem chi tiết</a>
-                <button class="product-card__btn product-card__btn--wishlist" aria-label="Yêu thích">
-                  <svg width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </button>
+              <a href="/src/pages/products/detail.html" class="product-card__img-link">
+                <img src="/src/assets/images/product-2.png" alt="Đầm lụa dáng dài Premium" class="product-card__img" />
+              </a>
+              <button class="btn-icon product-card__btn-wishlist card__wishlist-btn" type="button"
+                title="Thêm vào Wishlist">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </button>
+              <div class="product-card__img-hover">
+                <a href="/src/pages/products/detail.html" class="btn-detail">Xem chi tiết</a>
               </div>
             </div>
+
             <div class="product-card__info">
               <div class="product-card__rating">
                 <span class="product-card__rating-star">
                   <svg width="12" height="12" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
                 </span>
                 <span>4.9</span>
                 <span>(203)</span>
               </div>
-              <a href="#" class="product-card__title">Đầm lụa dáng dài Premium</a>
-              <span class="product-card__price">1,590,000đ</span>
+              <a href="/src/pages/products/detail.html" class="product-card__title-link">
+                <h3 class="product-card__title">Đầm lụa dáng dài Premium</h3>
+              </a>
+              <div class="product-card__colors">
+                <span class="product-card__color-dot" style="background-color: #5D3A3A;" title="Đỏ rượu vang"></span>
+                <span class="product-card__color-dot" style="background-color: #F5E6E3;" title="Hồng kem"></span>
+                <span class="product-card__color-dot" style="background-color: #E8DFD6;" title="Kem"></span>
+              </div>
+              <div class="product-card__price-row">
+                <span class="product-card__price">1.590.000đ</span>
+              </div>
+            </div>
+            <div class="product-card__actions">
+              <a href="/src/pages/checkout/shipping-payment.html" class="btn-buy">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Mua ngay
+              </a>
+              <a href="/src/pages/cart/cart.html" class="product-card__btn-cart" title="Thêm vào giỏ hàng">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </a>
             </div>
           </article>
 
           <!-- Product 3 -->
           <article class="product-card">
-            <div class="product-card__image-container">
+            <div class="product-card__img-wrapper">
               <span class="product-card__badge product-card__badge--hot">Hot</span>
-              <img src="/src/assets/images/product-3.png" alt="Áo khoác dạ Tweed tiểu thư" />
-              <div class="product-card__actions">
-                <a href="#" class="product-card__btn product-card__btn--detail">Xem chi tiết</a>
-                <button class="product-card__btn product-card__btn--wishlist" aria-label="Yêu thích">
-                  <svg width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </button>
+              <a href="/src/pages/products/detail.html" class="product-card__img-link">
+                <img src="/src/assets/images/product-3.png" alt="Áo khoác dạ Tweed tiểu thư"
+                  class="product-card__img" />
+              </a>
+              <button class="btn-icon product-card__btn-wishlist card__wishlist-btn" type="button"
+                title="Thêm vào Wishlist">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </button>
+              <div class="product-card__img-hover">
+                <a href="/src/pages/products/detail.html" class="btn-detail">Xem chi tiết</a>
               </div>
             </div>
+
             <div class="product-card__info">
               <div class="product-card__rating">
                 <span class="product-card__rating-star">
                   <svg width="12" height="12" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
                 </span>
                 <span>4.7</span>
                 <span>(89)</span>
               </div>
-              <a href="#" class="product-card__title">Áo khoác dạ Tweed tiểu thư</a>
-              <span class="product-card__price">2,190,000đ</span>
+              <a href="/src/pages/products/detail.html" class="product-card__title-link">
+                <h3 class="product-card__title">Áo khoác dạ Tweed tiểu thư</h3>
+              </a>
+              <div class="product-card__colors">
+                <span class="product-card__color-dot" style="background-color: #89A894;" title="Xanh rêu"></span>
+                <span class="product-card__color-dot" style="background-color: #EADCD9;" title="Be nhạt"></span>
+                <span class="product-card__color-dot" style="background-color: #2A2522;" title="Đen"></span>
+              </div>
+              <div class="product-card__price-row">
+                <span class="product-card__price">2.190.000đ</span>
+              </div>
+            </div>
+            <div class="product-card__actions">
+              <a href="/src/pages/checkout/shipping-payment.html" class="btn-buy">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Mua ngay
+              </a>
+              <a href="/src/pages/cart/cart.html" class="product-card__btn-cart" title="Thêm vào giỏ hàng">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </a>
             </div>
           </article>
 
           <!-- Product 4 -->
           <article class="product-card">
-            <div class="product-card__image-container">
+            <div class="product-card__img-wrapper">
               <span class="product-card__badge product-card__badge--sale">Sale</span>
-              <img src="/src/assets/images/product-4.png" alt="Quần culottes thanh lịch" />
-              <div class="product-card__actions">
-                <a href="#" class="product-card__btn product-card__btn--detail">Xem chi tiết</a>
-                <button class="product-card__btn product-card__btn--wishlist" aria-label="Yêu thích">
-                  <svg width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </button>
+              <a href="/src/pages/products/detail.html" class="product-card__img-link">
+                <img src="/src/assets/images/product-4.png" alt="Quần culottes thanh lịch" class="product-card__img" />
+              </a>
+              <button class="btn-icon product-card__btn-wishlist card__wishlist-btn" type="button"
+                title="Thêm vào Wishlist">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </button>
+              <div class="product-card__img-hover">
+                <a href="/src/pages/products/detail.html" class="btn-detail">Xem chi tiết</a>
               </div>
             </div>
+
             <div class="product-card__info">
               <div class="product-card__rating">
                 <span class="product-card__rating-star">
                   <svg width="12" height="12" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
                 </span>
                 <span>4.6</span>
                 <span>(156)</span>
               </div>
-              <a href="#" class="product-card__title">Quần culottes thanh lịch</a>
-              <span class="product-card__price">990,000đ</span>
+              <a href="/src/pages/products/detail.html" class="product-card__title-link">
+                <h3 class="product-card__title">Quần culottes thanh lịch</h3>
+              </a>
+              <div class="product-card__colors">
+                <span class="product-card__color-dot" style="background-color: #2A2522;" title="Đen"></span>
+                <span class="product-card__color-dot" style="background-color: #E8DFD6;" title="Kem"></span>
+              </div>
+              <div class="product-card__price-row">
+                <span class="product-card__price">990.000đ</span>
+                <span class="product-card__price-old">1.290.000đ</span>
+              </div>
+            </div>
+            <div class="product-card__actions">
+              <a href="/src/pages/checkout/shipping-payment.html" class="btn-buy">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Mua ngay
+              </a>
+              <a href="/src/pages/cart/cart.html" class="product-card__btn-cart" title="Thêm vào giỏ hàng">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </a>
             </div>
           </article>
         </div>
@@ -319,24 +445,26 @@
         </div>
         <div class="collections-section__grid">
           <!-- Collection 1 -->
-          <a href="#" class="collection-card">
+          <a href="/src/pages/collections.html" class="collection-card">
             <img src="/src/assets/images/collection-1.png" alt="Bộ sưu tập Thu Đông" class="collection-card__image" />
             <div class="collection-card__overlay"></div>
             <div class="collection-card__content">
               <span class="collection-card__badge">New Season</span>
               <h3 class="collection-card__title">Bộ sưu tập Thu Đông</h3>
               <p class="collection-card__desc">Những thiết kế ấm áp và retro cho mùa lạnh này</p>
+              <span class="collection-card__btn">Xem chi tiết &rarr;</span>
             </div>
           </a>
 
           <!-- Collection 2 -->
-          <a href="#" class="collection-card">
+          <a href="/src/pages/collections.html" class="collection-card">
             <img src="/src/assets/images/collection-2.png" alt="Công sở thanh lịch" class="collection-card__image" />
             <div class="collection-card__overlay"></div>
             <div class="collection-card__content">
               <span class="collection-card__badge">Best Seller</span>
               <h3 class="collection-card__title">Công sở thanh lịch</h3>
               <p class="collection-card__desc">Tự tin và chuyên nghiệp mỗi ngày nơi công sở</p>
+              <span class="collection-card__btn">Xem chi tiết &rarr;</span>
             </div>
           </a>
         </div>
@@ -363,7 +491,9 @@
           <div class="policy-card">
             <div class="policy-card__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
               </svg>
             </div>
             <div class="policy-card__info">
@@ -376,7 +506,9 @@
           <div class="policy-card">
             <div class="policy-card__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
               </svg>
             </div>
             <div class="policy-card__info">
@@ -389,126 +521,65 @@
     </main>
 
     <!-- SITE FOOTER -->
-    <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <div class="site-footer__grid">
-          <div class="site-footer__brand">
-            <p class="font-display">Velura</p>
-            <p>Thời trang thông minh cho phái đẹp hiện đại</p>
-            <div class="site-footer__social">
-              <a href="#" aria-label="Facebook">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="Instagram">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4>Liên kết nhanh</h4>
-            <ul>
-              <li><a href="/index.html">Trang chủ</a></li>
-              <li><a href="#">Sản phẩm</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Về chúng tôi</a></li>
-              <li><a href="/src/pages/contact.html">Liên hệ</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Hỗ trợ</h4>
-            <ul>
-              <li><a href="#">Đơn hàng của tôi</a></li>
-              <li><a href="#">Theo dõi đơn hàng</a></li>
-              <li><a href="#">Trả hàng &amp; Hoàn tiền</a></li>
-              <li><a href="/src/pages/policies.html">Chính sách</a></li>
-              <li><a href="/src/pages/policies.html">Câu hỏi thường gặp</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Liên hệ</h4>
-            <ul class="site-footer__contact">
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span>123 Nguyễn Huệ, Q.1, TP.HCM</span>
-              </li>
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                <span>1900 xxxx</span>
-              </li>
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <span>hello@velura.vn</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <p class="site-footer__bottom">&copy; 2026 Velura. Bản quyền thuộc về Velura Fashion.</p>
-      </div>
-    </footer>
+    <load src="/src/components/footer.html" />
   </div>
   <!-- STYLE QUIZ MODAL -->
   <div class="quiz-modal" id="quiz-modal">
     <div class="quiz-modal__overlay"></div>
     <div class="quiz-modal__content">
       <button class="quiz-modal__close js-close-quiz" type="button" aria-label="Đóng">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      
+
       <div class="quiz-modal__image-side">
         <img src="/src/assets/images/quiz-illustration.png" alt="Style Quiz Illustration" />
       </div>
-      
+
       <div class="quiz-modal__content-side">
         <div class="quiz-modal__header">
           <div class="quiz-modal__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+              </polygon>
             </svg>
           </div>
           <h2 class="quiz-modal__title-text">Kiến tạo phong cách riêng cùng AI Stylist</h2>
           <p class="quiz-modal__description">
-            Trải nghiệm dịch vụ tư vấn trang phục cá nhân hóa. Chúng mình sẽ phân tích sở thích và phong cách sống của bạn để tuyển chọn những thiết kế hoàn hảo nhất từ Velura.
+            Trải nghiệm dịch vụ tư vấn trang phục cá nhân hóa. Chúng mình sẽ phân tích sở thích và phong cách sống của
+            bạn để tuyển chọn những thiết kế hoàn hảo nhất từ Velura.
           </p>
         </div>
-        
+
         <div class="quiz-modal__buttons">
-          <button class="btn btn--accent" type="button">Bắt đầu Style Quiz</button>
+          <a class="btn btn--accent" href="/src/pages/ai/style-quiz.html">Bắt đầu Style Quiz</a>
           <button class="btn btn-outline js-close-quiz" type="button">Để sau</button>
         </div>
-        
+
         <p class="quiz-modal__note">Chỉ mất khoảng 2 phút. Phân tích miễn phí 100%.</p>
       </div>
     </div>
   </div>
 
-  <!-- CHATBOT WIDGET -->
+  <!-- CHATBOT WIDGET ĐÃ CẬP NHẬT -->
   <div class="chatbot-widget">
     <button class="chatbot-toggler js-chatbot-toggle" type="button" aria-label="Mở khung chat">
-      <svg class="chatbot-toggler__icon-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="chatbot-toggler__icon-chat" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
       </svg>
-      <svg class="chatbot-toggler__icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="chatbot-toggler__icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    
+
     <div class="chatbot-box">
       <div class="chatbot-header">
         <div class="chatbot-header__info">
@@ -521,31 +592,72 @@
             <span class="chatbot-header__desc">Trực tuyến</span>
           </div>
         </div>
-        <div class="chatbot-state-switcher">
-          <select class="js-chatbot-state-select" aria-label="Chọn trạng thái kiểm thử">
-            <option value="guest">Guest Mode</option>
-            <option value="user">User Mode</option>
-          </select>
+
+        <!-- BỔ SUNG: KHU VỰC CHỨA SELECT MODE VÀ NÚT 3 GẠCH -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div class="chatbot-state-switcher">
+            <select class="js-chatbot-state-select" aria-label="Chọn trạng thái kiểm thử">
+              <option value="guest">Guest Mode</option>
+              <option value="user">User Mode</option>
+            </select>
+          </div>
+
+          <!-- NÚT 3 GẠCH -->
+          <button class="js-menu-chatbot-trigger" type="button" aria-label="Lịch sử trò chuyện"
+            style="background: transparent; border: none; cursor: pointer; color: white; padding: 4px; display: flex;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <a class="chatbot-header__expand" href="/src/pages/chatbot.html" aria-label="Phóng to">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </a>
+          <button class="chatbot-header__close js-chatbot-toggle" type="button" aria-label="Đóng khung chat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
-        <button class="chatbot-header__close js-chatbot-toggle" type="button" aria-label="Đóng khung chat">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
       </div>
-      
+
       <div class="chatbot-messages">
         <div class="chatbot-message chatbot-message--bot">
-          <div class="chatbot-message__text">Chào bạn! Tôi là AI Stylist của Velura. Tôi có thể giúp gì cho bạn trong việc lựa chọn phong cách hôm nay?</div>
+          <div class="chatbot-message__text">Chào bạn! Tôi là AI Stylist của Velura. Tôi có thể giúp gì cho bạn trong
+            việc lựa chọn phong cách hôm nay?</div>
           <span class="chatbot-message__time">17:05</span>
         </div>
       </div>
-      
+
       <form class="chatbot-input-area js-chatbot-form" data-prevent-submit>
-        <input class="chatbot-input js-chatbot-input" type="text" placeholder="Viết tin nhắn..." aria-label="Nội dung chat" />
+        <!-- BỔ SUNG: NÚT ĐÍNH KÈM ẢNH -->
+        <button class="chatbot-attach-btn" type="button" aria-label="Đính kèm ảnh">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </button>
+        <!-- INPUT FILE ẨN -->
+        <input type="file" id="img-input" accept="image/*" hidden />
+
+        <input class="chatbot-input js-chatbot-input" type="text" placeholder="Viết tin nhắn..."
+          aria-label="Nội dung chat" />
         <button class="chatbot-send-btn" type="submit" aria-label="Gửi tin nhắn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
@@ -560,20 +672,23 @@
     <div class="search-overlay__container">
       <div class="search-overlay__header">
         <div class="search-overlay__search-box">
-          <svg class="search-overlay__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="search-overlay__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input class="search-overlay__input js-search-overlay-input" type="text" placeholder="Tìm kiếm sản phẩm, danh mục..." aria-label="Tìm kiếm trong cửa hàng" />
+          <input class="search-overlay__input js-search-overlay-input" type="text"
+            placeholder="Tìm kiếm sản phẩm, danh mục..." aria-label="Tìm kiếm trong cửa hàng" />
         </div>
         <button class="search-overlay__close js-search-close" type="button" aria-label="Đóng tìm kiếm">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
-      
+
       <div class="search-overlay__content">
         <div class="search-overlay__row">
           <div class="search-overlay__left-col">
@@ -597,6 +712,130 @@
     </div>
   </div>
 
+  <!-- STYLE QUIZ AUTO POPUP BANNER -->
+  <div class="quiz-popup" id="js-quiz-popup">
+    <div class="quiz-popup__overlay js-close-popup"></div>
+    <div class="quiz-popup__content">
+      <!-- Decorative stars -->
+      <span class="quiz-popup__decor-star quiz-popup__decor-star--1">✦</span>
+      <span class="quiz-popup__decor-star quiz-popup__decor-star--2">✦</span>
+      <span class="quiz-popup__decor-star quiz-popup__decor-star--3">✦</span>
+      <span class="quiz-popup__decor-star quiz-popup__decor-star--4">✦</span>
+
+      <button class="quiz-popup__close js-close-popup" type="button" aria-label="Đóng">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="quiz-popup__left">
+        <div class="quiz-popup__logo">
+          <img src="/src/assets/images/logo.png" alt="Velura Logo" width="72" />
+        </div>
+
+        <!-- Blurry leaf shadow layer -->
+        <svg class="quiz-popup__leaves-shadow" viewBox="0 0 120 280" fill="none">
+          <path d="M20 280 C30 200 25 120 15 40" stroke="#4A3F35" stroke-width="3" stroke-linecap="round"
+            opacity="0.4" />
+          <path d="M23 230 C10 215 5 195 10 185 C20 180 25 200 24 215 Z" fill="#4A3F35" opacity="0.4" />
+          <path d="M25 200 C40 190 48 175 42 165 C32 160 25 175 23 190 Z" fill="#4A3F35" opacity="0.4" />
+          <path d="M20 160 C5 145 0 125 5 115 C15 110 22 125 21 145 Z" fill="#4A3F35" opacity="0.4" />
+          <path d="M19 130 C35 120 42 105 38 95 C28 90 20 105 18 120 Z" fill="#4A3F35" opacity="0.4" />
+          <path d="M17 100 C8 85 5 70 10 62 C18 58 22 72 18 90 Z" fill="#4A3F35" opacity="0.4" />
+          <path d="M16 75 C30 65 35 50 31 42 C23 38 17 52 15 67 Z" fill="#4A3F35" opacity="0.4" />
+          <path d="M15 40 C12 25 18 15 22 10 C25 20 22 32 17 38 Z" fill="#4A3F35" opacity="0.4" />
+        </svg>
+
+        <!-- Crisp line art leaf layer -->
+        <svg class="quiz-popup__leaves-line" viewBox="0 0 120 280" fill="none" stroke="#734724" stroke-width="1.2">
+          <path d="M20 280 C30 200 25 120 15 40" stroke-linecap="round" />
+          <path d="M23 230 C10 215 5 195 10 185 C20 180 25 200 24 215 Z" fill="none" />
+          <path d="M25 200 C40 190 48 175 42 165 C32 160 25 175 23 190 Z" fill="none" />
+          <path d="M20 160 C5 145 0 125 5 115 C15 110 22 125 21 145 Z" fill="none" />
+          <path d="M19 130 C35 120 42 105 38 95 C28 90 20 105 18 120 Z" fill="none" />
+          <path d="M17 100 C8 85 5 70 10 62 C18 58 22 72 18 90 Z" fill="none" />
+          <path d="M16 75 C30 65 35 50 31 42 C23 38 17 52 15 67 Z" fill="none" />
+          <path d="M15 40 C12 25 18 15 22 10 C25 20 22 32 17 38 Z" fill="none" />
+        </svg>
+
+        <!-- CSS background circle -->
+        <div class="quiz-popup__bg-circle"></div>
+
+        <!-- Illustration -->
+        <img src="/src/assets/images/quiz-illustration.png" alt="Style Quiz Illustration"
+          class="quiz-popup__illustration" />
+      </div>
+
+      <div class="quiz-popup__right">
+        <div class="quiz-popup__badge">
+          <span>✦ MIỄN PHÍ 100%</span>
+        </div>
+
+        <h2 class="quiz-popup__title">
+          Khám phá<br>
+          <span class="italic">phong cách</span>
+          <span class="quiz-popup__title-sparkles">
+            <span class="quiz-popup__title-sparkle quiz-popup__title-sparkle--1">✦</span>
+            <span class="quiz-popup__title-sparkle quiz-popup__title-sparkle--2">✦</span>
+          </span><br>
+          dành riêng cho bạn
+        </h2>
+
+        <div class="quiz-popup__divider">
+          <span class="quiz-popup__divider-diamond">✦</span>
+        </div>
+
+        <p class="quiz-popup__desc-lead">Chỉ mất 2 phút để nhận ngay:</p>
+
+        <ul class="quiz-popup__list">
+          <li class="quiz-popup__list-item">
+            <span class="quiz-popup__list-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M2 17l10-11 10 11M2 17h20v2H2z" />
+              </svg>
+            </span>
+            <span class="quiz-popup__list-text">Gu thời trang chủ đạo</span>
+          </li>
+          <li class="quiz-popup__list-item">
+            <span class="quiz-popup__list-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="8" cy="10" r="1.5" />
+                <circle cx="12" cy="8" r="1.5" />
+                <circle cx="16" cy="11" r="1.5" />
+              </svg>
+            </span>
+            <span class="quiz-popup__list-text">Bảng màu phù hợp</span>
+          </li>
+          <li class="quiz-popup__list-item">
+            <span class="quiz-popup__list-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 2v4M12 18v4M4 12h4M16 12h4M6.3 6.3l2.8 2.8M14.9 14.9l2.8 2.8M6.3 17.7l2.8-2.8M14.9 9.1l2.8-2.8" />
+              </svg>
+            </span>
+            <span class="quiz-popup__list-text">Outfit gợi ý cá nhân hóa</span>
+          </li>
+        </ul>
+
+        <div class="quiz-popup__actions-group">
+          <a class="btn quiz-popup__btn-start" href="/src/pages/ai/style-quiz.html">
+            ✦ BẮT ĐẦU STYLE QUIZ &rarr;
+          </a>
+          <button class="quiz-popup__btn-later js-close-popup" type="button">
+            Để sau &gt;
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script type="module" src="/src/scripts/main.js"></script>
 </body>
+
 </html>

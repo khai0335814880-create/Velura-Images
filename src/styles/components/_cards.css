@@ -419,5 +419,128 @@
   box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px var(--terracotta);
 }
 
+/* ============================================================
+   Product Card Overlay — card--product (list.html)
+   Thiết kế mới: tim luôn hiện, Xem chi tiết ở giữa ảnh khi hover,
+   Mua ngay + Cart icon luôn hiển thị ở dưới card.
+   ============================================================ */
 
+/* Đảm bảo wrapper là stacking context */
+.card--product .product-card__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* === ❤️  Wishlist: LUÔN HIỂN THỊ, góc trên-phải === */
+.card--product .card__wishlist-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: background 0.25s ease, color 0.25s ease,
+    transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card--product .card__wishlist-btn:hover {
+  transform: scale(1.12);
+}
+
+/* === 🔲  "Xem chi tiết": center ảnh, ẩn; hiện khi hover VÙNG ẢNH === */
+.card--product .product-card__img-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.26);
+  z-index: 8;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.card--product .product-card__image-wrapper:hover .product-card__img-hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card--product .product-card__img-hover .btn-detail {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--text-dark, #2a2522);
+  padding: 10px 34px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transform: translateY(6px);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.25s ease;
+  display: inline-block;
+  white-space: nowrap;
+}
+.card--product .product-card__image-wrapper:hover .product-card__img-hover .btn-detail {
+  transform: translateY(0);
+}
+.card--product .product-card__img-hover .btn-detail:hover {
+  background: #ffffff;
+  color: var(--terracotta);
+}
+
+/* === ⚪  Color dots: tĩnh — khoá không cho chọn === */
+.card--product .card__colors {
+  pointer-events: none;
+}
+.card--product .card__color-dot {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* === 🛍️  Actions Row: Mua ngay + Cart icon (luôn hiển thị) === */
+.card--product .card__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 14px;
+}
+
+.card--product .card__actions .btn-buy {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #F4E4DC;
+  color: var(--terracotta, #C97B63);
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.card--product .card__actions .btn-buy:hover {
+  background: #e8c9be;
+  color: var(--terracotta-h, #b36a53);
+}
+.card--product .card__actions .btn-buy svg { display: block; flex-shrink: 0; }
+
+.card--product .card__btn-cart {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F4E4DC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--terracotta, #C97B63);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.card--product .card__btn-cart svg { display: block; fill: none; stroke: currentColor; stroke-width: 2; }
+.card--product .card__btn-cart:hover { background: var(--terracotta); color: #ffffff; }
 

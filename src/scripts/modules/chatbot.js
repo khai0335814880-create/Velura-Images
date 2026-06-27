@@ -14,6 +14,13 @@ export function initChatbot() {
   var switcher = chatContainer.querySelector(".js-chatbot-state-select");
   var recsContainer = chatContainer.querySelector(".js-chatbot-recommendations");
 
+  // --- BỔ SUNG DOM ELEMENTS CHO TÍNH NĂNG MỚI ---
+  var historyOverlay = document.querySelector(".chatbot-history-overlay");
+  var menuTriggers = document.querySelectorAll(".js-menu-chatbot-trigger");
+  var imgInput = document.getElementById("img-input");
+  var attachBtn = chatContainer.querySelector(".chatbot-attach-btn");
+  // ----------------------------------------------
+
   var currentMode = "guest";
 
   // Toggle chatbot box (only runs on pages where floating widget togglers exist)
@@ -21,13 +28,13 @@ export function initChatbot() {
     toggle.addEventListener("click", function (e) {
       e.stopPropagation();
       chatContainer.classList.toggle("chatbot-widget--open");
-      
+
       // Auto focus input when opened
       if (chatContainer.classList.contains("chatbot-widget--open") && input) {
         setTimeout(function () {
           input.focus();
         }, 300);
-        
+
         // Auto scroll to bottom when opened
         if (messagesContainer) {
           messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -37,15 +44,35 @@ export function initChatbot() {
   });
 
   // Handle Menu Trigger Click
-  var menuTriggers = document.querySelectorAll(".js-menu-chatbot-trigger");
   menuTriggers.forEach(function (trigger) {
     trigger.addEventListener("click", function (e) {
       e.preventDefault();
-      console.log("Menu Chatbot Triggered");
-      console.log("Navigating to dedicated Chatbot page...");
-      window.location.href = "/src/pages/chatbot.html";
+
+      // --- CẬP NHẬT LOGIC LỊCH SỬ CHAT ---
+      if (historyOverlay) {
+        // Nếu đang ở trang chatbot, mở overlay lịch sử
+        historyOverlay.classList.toggle("is-open");
+        var isMember = localStorage.getItem("chatbotStateMode") === "user";
+        historyOverlay.innerHTML = isMember
+          ? "<h3>Lịch sử trò chuyện</h3><p>Phiên chat 27/06/2026: Tư vấn váy đầm...</p>"
+          : "<p class='history-list__empty'>Chưa có lịch sử trò chuyện</p>";
+      } else {
+        // Nếu ở trang khác, điều hướng về trang chatbot
+        console.log("Menu Chatbot Triggered");
+        console.log("Navigating to dedicated Chatbot page...");
+        window.location.href = "/src/pages/chatbot.html";
+      }
+      // -----------------------------------
     });
   });
+
+  // --- BỔ SUNG LOGIC ĐÍNH KÈM ẢNH ---
+  if (attachBtn && imgInput) {
+    attachBtn.addEventListener("click", function () {
+      imgInput.click();
+    });
+  }
+  // -----------------------------------
 
   // Helper escape HTML helper
   function escapeHtml(text) {
@@ -75,14 +102,31 @@ export function initChatbot() {
   function renderMessages(messages, smooth) {
     if (!messagesContainer) return;
     messagesContainer.innerHTML = "";
-    
+
     messages.forEach(function (msg) {
       var msgEl = document.createElement("div");
       var senderClass = msg.sender === "user" ? "chatbot-message--user" : "chatbot-message--bot";
       var historyClass = msg.isHistory ? " chatbot-message--history" : "";
       msgEl.className = "chatbot-message " + senderClass + historyClass;
-      
-      msgEl.innerHTML = '<div class="chatbot-message__text">' + escapeHtml(msg.text) + '</div><span class="chatbot-message__time">' + escapeHtml(msg.time) + '</span>';
+
+      // --- CẬP NHẬT LOGIC RENDER SẢN PHẨM TRONG TIN NHẮN ---
+      var contentHtml = '<div class="chatbot-message__text">' + escapeHtml(msg.text) + '</div>';
+
+      if (msg.product) {
+        contentHtml +=
+          '<div class="chatbot-product-card">' +
+          '<img src="' + msg.product.image + '" alt="' + escapeHtml(msg.product.title) + '">' +
+          '<h4 class="chatbot-product-card__title">' + escapeHtml(msg.product.title) + '</h4>' +
+          '<div class="chatbot-product-card__actions">' +
+          '<a href="#" class="chatbot-product-card__btn chatbot-product-card__btn--buy">Mua ngay</a>' +
+          '<a href="#" class="chatbot-product-card__btn chatbot-product-card__btn--detail">Xem chi tiết</a>' +
+          '</div>' +
+          '</div>';
+      }
+
+      msgEl.innerHTML = contentHtml + '<span class="chatbot-message__time">' + escapeHtml(msg.time) + '</span>';
+      // -----------------------------------------------------
+
       messagesContainer.appendChild(msgEl);
     });
 
@@ -113,14 +157,14 @@ export function initChatbot() {
           var itemEl = document.createElement("a");
           itemEl.className = "recommendation-item";
           itemEl.href = prod.link;
-          
-          itemEl.innerHTML = 
+
+          itemEl.innerHTML =
             '<img src="' + prod.image + '" alt="' + escapeHtml(prod.title) + '" class="recommendation-item__img" />' +
             '<div class="recommendation-item__info">' +
-              '<h4 class="recommendation-item__title">' + escapeHtml(prod.title) + '</h4>' +
-              '<span class="recommendation-item__price">' + escapeHtml(prod.price) + '</span>' +
+            '<h4 class="recommendation-item__title">' + escapeHtml(prod.title) + '</h4>' +
+            '<span class="recommendation-item__price">' + escapeHtml(prod.price) + '</span>' +
             '</div>';
-            
+
           recsContainer.appendChild(itemEl);
         });
       } else {
@@ -204,7 +248,7 @@ export function initChatbot() {
       if (storedHistory) {
         try {
           historyObj = JSON.parse(storedHistory);
-        } catch (e) {}
+        } catch (e) { }
       }
       if (!historyObj) historyObj = { guest: [], user: [] };
       if (!historyObj.guest) historyObj.guest = [];
@@ -219,12 +263,20 @@ export function initChatbot() {
       // Simulated Bot Reply after 1 second delay
       setTimeout(function () {
         var botTimeStr = formatTime(new Date());
+
+        // --- CẬP NHẬT MOCK BOT REPLY CÓ CHỨA SẢN PHẨM ---
         var botMsg = {
           sender: "bot",
-          text: "Cảm ơn tin nhắn của bạn! AI Stylist của Velura đang phân tích yêu cầu. Bạn có quan tâm đến set đồ len mới nhất hay gợi ý dáng váy đầm thiết kế cao cấp không ạ?",
+          text: "Cảm ơn tin nhắn của bạn! Đây là gợi ý sản phẩm phù hợp với phong cách của bạn:",
           time: botTimeStr,
-          isHistory: false
+          isHistory: false,
+          product: {
+            image: "/src/assets/images/products/detail/image-1.png",
+            title: "Áo sơ mi linen trắng cao cấp",
+            price: "890.000đ"
+          }
         };
+        // ------------------------------------------------
 
         // Save bot reply to localStorage
         var storedHistoryObj = localStorage.getItem("chatHistory");
@@ -232,7 +284,7 @@ export function initChatbot() {
         if (storedHistoryObj) {
           try {
             historyObjUpdate = JSON.parse(storedHistoryObj);
-          } catch (e) {}
+          } catch (e) { }
         }
         if (!historyObjUpdate) historyObjUpdate = { guest: [], user: [] };
         if (!historyObjUpdate.guest) historyObjUpdate.guest = [];

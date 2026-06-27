@@ -7,6 +7,17 @@ export function initProductCatalog() {
   var categoryCheckboxes = document.querySelectorAll('input[name="category"]');
   var activeCategoryEl = document.querySelector(".js-active-category");
 
+  // Mapping từ value checkbox → tên hiển thị (dùng cho fallback nếu cần)
+  var CATEGORY_LABELS = {
+    top: "Áo",
+    pants: "Quần",
+    dress: "Đầm & Váy",
+    jacket: "Áo khoác",
+    set: "Set đồ",
+    accessories: "Phụ kiện",
+    shoes: "Giày dép"
+  };
+
   function updateActiveCategoryText() {
     if (!activeCategoryEl) return;
     var checkedNames = [];
@@ -20,20 +31,46 @@ export function initProductCatalog() {
     });
 
     if (checkedNames.length > 0) {
-      activeCategoryEl.textContent = " " + checkedNames.join(", ");
+      activeCategoryEl.textContent = checkedNames.join(", ");
     } else {
       activeCategoryEl.textContent = "";
     }
   }
 
   if (categoryCheckboxes.length && activeCategoryEl) {
-    // Chạy đồng bộ lần đầu khi load trang
+    // ── Đọc tham số ?category= từ URL và tick checkbox tương ứng ──
+    var urlParams = new URLSearchParams(window.location.search);
+    var categoryParam = urlParams.get("category");
+
+    if (categoryParam) {
+      // Bỏ tick tất cả checkbox trước
+      categoryCheckboxes.forEach(function (cb) {
+        cb.checked = false;
+      });
+
+      // Tick checkbox có value khớp với tham số URL
+      var targetCheckbox = document.querySelector(
+        'input[name="category"][value="' + categoryParam + '"]'
+      );
+      if (targetCheckbox) {
+        targetCheckbox.checked = true;
+
+        // Cuộn sidebar vào vùng nhìn thấy để người dùng thấy bộ lọc đang hoạt động
+        var filterGroup = targetCheckbox.closest(".filter-group");
+        if (filterGroup) {
+          filterGroup.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
+    }
+
+    // Chạy đồng bộ lần đầu khi load trang (sau khi đã set checkbox từ URL)
     updateActiveCategoryText();
-    
+
     categoryCheckboxes.forEach(function (cb) {
       cb.addEventListener("change", updateActiveCategoryText);
     });
   }
+
 
   /* 2. Chuyển đổi linh hoạt chế độ xem lưới (Grid / Large / List) */
   var btnViewGrid = document.querySelector(".js-view-grid");

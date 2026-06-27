@@ -8,6 +8,13 @@ import { initPolicyTabs } from "./modules/policy-tabs.js";
 import { initContactForm } from "./modules/contact-form.js";
 import { initVideoControl } from "./modules/video-control.js";
 import { initProductCatalog } from "./modules/product-catalog.js";
+import { initProfileForm } from "./modules/account-profile.js";
+import { initStyleQuiz } from "./modules/style-quiz.js";
+import { initQuizPopupTrigger } from "./modules/quiz-trigger.js";
+import { initMyOrders } from "./modules/my-orders.js";
+import { initProductReview } from "./modules/product-review.js";
+import { initCollectionsFilter } from "./modules/collections.js";
+import { initReturnRequest } from "./modules/return-request.js";
 
 (function () {
   "use strict";
@@ -23,6 +30,13 @@ import { initProductCatalog } from "./modules/product-catalog.js";
   initContactForm();
   initVideoControl();
   initProductCatalog();
+  initProfileForm();
+  initStyleQuiz();
+  initQuizPopupTrigger();
+  initMyOrders();
+  initProductReview();
+  initCollectionsFilter();
+  initReturnRequest();
 
   /* Mobile navigation */
   var menuToggle = document.querySelector(".menu-toggle");
@@ -202,14 +216,17 @@ import { initProductCatalog } from "./modules/product-catalog.js";
   });
 
   /* Add to Cart Micro-Interaction */
-  var addBtns = document.querySelectorAll(".card__add-btn");
+  var addBtns = document.querySelectorAll(".card__add-btn, .card__btn-cart");
   var cartBadge = document.querySelector(".cart-badge");
   addBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
       if (cartBadge) {
         var count = parseInt(cartBadge.textContent, 10) || 0;
         cartBadge.textContent = count + 1;
-        
+
         // Micro-animation for cart badge
         cartBadge.style.transform = "scale(1.3)";
         cartBadge.style.transition = "transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
@@ -220,8 +237,6 @@ import { initProductCatalog } from "./modules/product-catalog.js";
     });
   });
 
-
-
   /* Wishlist Heart Toggle */
   var heartBtns = document.querySelectorAll(".card__wishlist-btn");
   heartBtns.forEach(function (btn) {
@@ -229,7 +244,7 @@ import { initProductCatalog } from "./modules/product-catalog.js";
       e.preventDefault();
       e.stopPropagation(); // Ngăn click lan tới card sản phẩm
       btn.classList.toggle("is-active");
-      
+
       // Micro-animation khi click
       btn.style.transform = "scale(1.25)";
       btn.style.transition = "transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
@@ -254,6 +269,5 @@ import { initProductCatalog } from "./modules/product-catalog.js";
       dot.classList.add("is-active");
     });
   });
+
 })();
-
-
