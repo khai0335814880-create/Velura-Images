@@ -13,9 +13,15 @@ export const mockHistoryData = [
   },
   {
     sender: "bot",
-    text: "Dạ có sẵn ạ, size M màu đỏ rượu vang đang là phối màu bán chạy nhất trong tuần này.",
+    text: "Dạ có sẵn ạ, size M màu đỏ rượu vang đang là phối màu bán chạy nhất trong tuần này. Mình gửi bạn thông tin chi tiết để đặt hàng ngay nhé:",
     time: "10:33 AM",
-    isHistory: true
+    isHistory: true,
+    // BỔ SUNG: Object product để kích hoạt giao diện Thẻ sản phẩm trong khung chat
+    product: {
+      image: "/src/assets/images/products/detail/detail-img-1.png",
+      title: "Set đồ len thu đông cao cấp",
+      price: "1.990.000₫"
+    }
   }
 ];
 

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đơn hàng của tôi - Velura Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/main.css" />
+</head>
+
+<body class="page-my-orders">
+  <div class="page-shell">
+    <load src="/src/components/header.html" />
+
+
+    <!-- Main Content -->
+    <main class="my-orders-page">
+      <div class="container">
+        <!-- Page Title Block -->
+        <div class="my-orders-title-block">
+          <h1 class="my-orders-title">Đơn hàng của tôi</h1>
+          <p class="my-orders-subtitle">Theo dõi và quản lý tất cả đơn hàng của bạn tại Velura</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-orders-container">
+          <div class="search-orders-wrapper">
+            <svg class="search-orders-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-orders-input" id="js-search-orders"
+              placeholder="Tìm theo mã đơn hàng..." />
+          </div>
+        </div>
+
+        <!-- Horizontal Tabs -->
+        <div class="order-tabs">
+          <button class="order-tab is-active" data-tab="all" type="button">Tất cả</button>
+          <button class="order-tab" data-tab="pending" type="button">Chờ xác nhận</button>
+          <button class="order-tab" data-tab="shipping" type="button">Đang giao</button>
+          <button class="order-tab" data-tab="delivered" type="button">Hoàn thành</button>
+          <button class="order-tab" data-tab="cancelled" type="button">Đã hủy</button>
+        </div>
+
+        <!-- Orders List -->
+        <div class="order-list" id="js-order-list">
+
+          <!-- Order 1: shipping -->
+          <div class="order-card" data-order-id="VL-20260524-1234" data-status="shipping">
+            <div class="order-card__header">
+              <div class="order-card__header-left">
+                <span class="order-card__id">#VL-20260524-1234</span>
+                <span class="order-card__date">Đặt ngày 24/05/2026 • 10:32</span>
+              </div>
+              <span class="order-card__status-badge order-card__status-badge--shipping">Đang giao</span>
+            </div>
+
+            <div class="order-card__products">
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/image-1.png"
+                  alt="Áo sơ mi linen trắng" />
+                <span class="order-product-item__name">Áo sơ mi linen trắng</span>
+              </div>
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/image-6.png"
+                  alt="Quần suông ống rộng be" />
+                <span class="order-product-item__name">Quần suông ống rộng be</span>
+              </div>
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/phu-kien_tui-deo-vai-hobo-patent_01.jpg"
+                  alt="Túi tote da nâu" />
+                <span class="order-product-item__name">Túi tote da nâu</span>
+              </div>
+            </div>
+
+            <div class="order-card__footer">
+              <div class="order-card__footer-left">
+                <span class="order-card__count">Tổng cộng (3 sản phẩm)</span>
+                <span class="order-card__total">2,480,000đ</span>
+              </div>
+              <div class="order-card__actions" id="actions-VL-20260524-1234">
+                <button class="btn btn--success js-btn-confirm-delivery" type="button">Xác nhận giao thành công</button>
+                <a href="/src/pages/account/return-request.html?orderId=VL-20260524-1234" class="btn btn--outline js-btn-return">Đổi/Trả</a>
+                <a href="/src/pages/account/order-detail.html" class="btn btn--primary btn-detail-action">Chi tiết
+                  &gt;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order 2: delivered -->
+          <div class="order-card" data-order-id="VL-20260520-0987" data-status="delivered">
+            <div class="order-card__header">
+              <div class="order-card__header-left">
+                <span class="order-card__id">#VL-20260520-0987</span>
+                <span class="order-card__date">Đặt ngày 20/05/2026 • 14:08</span>
+              </div>
+              <span class="order-card__status-badge order-card__status-badge--delivered">Đã giao</span>
+            </div>
+
+            <div class="order-card__products">
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/products/product-vay-midi-do.png"
+                  alt="Váy midi hoa nhí vintage" />
+                <span class="order-product-item__name">Váy midi hoa nhí vintage</span>
+              </div>
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/phu-kien_khan-lua-twilly-cham-bi_01.jpg"
+                  alt="Khăn lụa pastel" />
+                <span class="order-product-item__name">Khăn lụa pastel</span>
+              </div>
+            </div>
+
+            <div class="order-card__footer">
+              <div class="order-card__footer-left">
+                <span class="order-card__count">Tổng cộng (2 sản phẩm)</span>
+                <span class="order-card__total">1,790,000đ</span>
+              </div>
+              <div class="order-card__actions" id="actions-VL-20260520-0987">
+                <button class="btn btn--primary js-btn-review-trigger" type="button">Đánh giá &gt;</button>
+                <a href="/src/pages/account/order-detail.html" class="btn btn--primary btn-detail-action">Chi tiết
+                  &gt;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order 3: pending -->
+          <div class="order-card" data-order-id="VL-20260518-0654" data-status="pending">
+            <div class="order-card__header">
+              <div class="order-card__header-left">
+                <span class="order-card__id">#VL-20260518-0654</span>
+                <span class="order-card__date">Đặt ngày 18/05/2026 • 09:15</span>
+              </div>
+              <span class="order-card__status-badge order-card__status-badge--pending">Chờ xác nhận</span>
+            </div>
+
+            <div class="order-card__products">
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/image-3.png"
+                  alt="Blazer linen cao cấp" />
+                <span class="order-product-item__name">Blazer linen cao cấp</span>
+              </div>
+            </div>
+
+            <div class="order-card__footer">
+              <div class="order-card__footer-left">
+                <span class="order-card__count">Tổng cộng (1 sản phẩm)</span>
+                <span class="order-card__total">2,190,000đ</span>
+              </div>
+              <div class="order-card__actions">
+                <a href="/src/pages/account/order-detail.html" class="btn btn--primary btn-detail-action">Chi tiết
+                  &gt;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order 4: delivered -->
+          <div class="order-card" data-order-id="VL-20260515-0432" data-status="delivered">
+            <div class="order-card__header">
+              <div class="order-card__header-left">
+                <span class="order-card__id">#VL-20260515-0432</span>
+                <span class="order-card__date">Đặt ngày 15/05/2026 • 18:47</span>
+              </div>
+              <span class="order-card__status-badge order-card__status-badge--delivered">Đã giao</span>
+            </div>
+
+            <div class="order-card__products">
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/image-6.png"
+                  alt="Quần culottes thanh lịch" />
+                <span class="order-product-item__name">Quần culottes thanh lịch</span>
+              </div>
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/image-8.png"
+                  alt="Áo thun cotton organic" />
+                <span class="order-product-item__name">Áo thun cotton organic</span>
+              </div>
+              <div class="order-product-item">
+                <img class="order-product-item__image"
+                  src="../../assets/images/phu-kien_khan-choang-da-tron-tua-rua_03.jpg" alt="Giày loafer nâu" />
+                <span class="order-product-item__name">Giày loafer nâu</span>
+              </div>
+              <div class="order-product-item order-product-item--more">
+                <span>+1 sản phẩm</span>
+              </div>
+            </div>
+
+            <div class="order-card__footer">
+              <div class="order-card__footer-left">
+                <span class="order-card__count">Tổng cộng (4 sản phẩm)</span>
+                <span class="order-card__total">3,120,000đ</span>
+              </div>
+              <div class="order-card__actions" id="actions-VL-20260515-0432">
+                <button class="btn btn--primary js-btn-review-trigger" type="button">Đánh giá &gt;</button>
+                <a href="/src/pages/account/order-detail.html" class="btn btn--primary btn-detail-action">Chi tiết
+                  &gt;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order 5: cancelled -->
+          <div class="order-card" data-order-id="VL-20260510-0218" data-status="cancelled">
+            <div class="order-card__header">
+              <div class="order-card__header-left">
+                <span class="order-card__id">#VL-20260510-0218</span>
+                <span class="order-card__date">Đặt ngày 10/05/2026 • 11:22</span>
+              </div>
+              <span class="order-card__status-badge order-card__status-badge--cancelled">Đã hủy</span>
+            </div>
+
+            <div class="order-card__products">
+              <div class="order-product-item">
+                <img class="order-product-item__image"
+                  src="../../assets/images/phu-kien_khan-choang-da-tron-tua-rua_01.jpg" alt="Áo khoác dạ camel" />
+                <span class="order-product-item__name">Áo khoác dạ camel</span>
+              </div>
+            </div>
+
+            <div class="order-card__footer">
+              <div class="order-card__footer-left">
+                <span class="order-card__count">Tổng cộng (1 sản phẩm)</span>
+                <span class="order-card__total">3,490,000đ</span>
+              </div>
+              <div class="order-card__actions">
+                <a href="/src/pages/account/order-detail.html" class="btn btn--primary btn-detail-action">Chi tiết
+                  &gt;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order 6: shipping -->
+          <div class="order-card" data-order-id="VL-20260508-0107" data-status="shipping">
+            <div class="order-card__header">
+              <div class="order-card__header-left">
+                <span class="order-card__id">#VL-20260508-0107</span>
+                <span class="order-card__date">Đặt ngày 08/05/2026 • 20:54</span>
+              </div>
+              <span class="order-card__status-badge order-card__status-badge--shipping">Đang giao</span>
+            </div>
+
+            <div class="order-card__products">
+              <div class="order-product-item">
+                <img class="order-product-item__image" src="../../assets/images/image-4.png" alt="Đầm dạ hội đen" />
+                <span class="order-product-item__name">Đầm dạ hội đen</span>
+              </div>
+              <div class="order-product-item">
+                <img class="order-product-item__image"
+                  src="../../assets/images/phu-kien_bom-toc-ban-to-theu-hoa-vintage_01.jpg" alt="Hoa tai ngọc trai" />
+                <span class="order-product-item__name">Hoa tai ngọc trai</span>
+              </div>
+            </div>
+
+            <div class="order-card__footer">
+              <div class="order-card__footer-left">
+                <span class="order-card__count">Tổng cộng (2 sản phẩm)</span>
+                <span class="order-card__total">2,890,000đ</span>
+              </div>
+              <div class="order-card__actions">
+                <button class="btn btn--outline btn-track-action" type="button">Theo dõi</button>
+                <a href="/src/pages/account/order-detail.html" class="btn btn--primary btn-detail-action">Chi tiết
+                  &gt;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Confirm Receipt Popup Modal (Intermediate Modal) -->
+    <div class="review-popup" id="js-confirm-receipt-modal">
+      <div class="review-popup__overlay js-close-confirm"></div>
+      <div class="review-popup__content">
+        <button class="review-popup__close js-close-confirm" type="button" aria-label="Đóng">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <h3 class="review-popup__title" style="margin-bottom: 24px;">Xác nhận đã nhận đơn hàng này?</h3>
+
+        <div class="review-popup__actions" style="justify-content: center; gap: 16px;">
+          <button class="btn btn--outline js-btn-skip-confirm" type="button" style="min-width: 120px;">Bỏ qua</button>
+          <button class="btn btn--primary js-btn-go-review" type="button"
+            style="min-width: 120px; background-color: var(--terracotta); border-color: var(--terracotta);">Đánh
+            giá</button>
+        </div>
+      </div>
+    </div>
+
+    <load src="/src/components/footer.html" />
+
+  </div>
+
+  <script type="module" src="../../scripts/main.js"></script>
+</body>
+
+</html>

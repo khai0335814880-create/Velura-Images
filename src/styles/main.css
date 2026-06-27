@@ -29,6 +29,11 @@
 @import "./components/_policy-tabs.css";
 @import "./components/_contact-page.css";
 @import "./components/_product-grid.css";
+@import "./components/_account.css";
+@import "./components/_quiz.css";
+@import "./components/_quiz-popup.css";
+@import "./components/_my-orders.css";
+@import "./components/_product-review.css";
 
 /* Pages */
 @import "./pages/_signin.css";
@@ -43,6 +48,7 @@
 @import "./pages/_wishlist.css";
 @import "./pages/_track-order.css";
 @import "./pages/_order-detail.css";
+@import "./pages/_collections.css";
 
 /* Các trang từ nhánh feature/optimize-product-pages */
 @import "./pages/_home.css";

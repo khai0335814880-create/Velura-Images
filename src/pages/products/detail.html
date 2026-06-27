@@ -1,75 +1,32 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Set đồ len — Velura</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
+
 <body>
   <div class="page-shell">
     <!-- SITE HEADER -->
-    <header class="site-header">
-      <div class="container">
-        <div class="site-header__top">
-          <a href="/index.html" class="site-header__logo">
-            <img src="/src/assets/images/logo.png" alt="Velura" width="84" height="76" />
-          </a>
-          
-          <label class="site-header__search">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="7.33" cy="7.33" r="5.33" stroke="#6B635D" stroke-width="1.33"/>
-              <path d="M14 14l-2.87-2.87" stroke="#6B635D" stroke-width="1.33" stroke-linecap="round"/>
-            </svg>
-            <input class="js-search-input" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm" />
-          </label>
-          
-          <div class="site-header__actions">
-            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-            <button class="icon-btn" type="button" aria-label="Yêu thích">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z" stroke="#2A2522" stroke-width="1.67"/>
-              </svg>
-            </button>
-            <button class="icon-btn" type="button" aria-label="Giỏ hàng">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M2 3h2.5l2.7 12.36a2 2 0 0 0 1.95 1.57h8.6a2 2 0 0 0 1.96-1.61L21.5 7H6" stroke="#2A2522" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="10" cy="20.5" r="1.4" stroke="#2A2522" stroke-width="1.6"/>
-                <circle cx="17" cy="20.5" r="1.4" stroke="#2A2522" stroke-width="1.6"/>
-              </svg>
-              <span class="cart-badge">3</span>
-            </button>
-            <a class="icon-btn" href="/src/pages/auth/signin.html" aria-label="Tài khoản">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M10 9.17a3.33 3.33 0 100-6.67 3.33 3.33 0 000 6.67zM15.83 17.5v-1.67a3.33 3.33 0 00-3.33-3.33H7.5a3.33 3.33 0 00-3.33 3.33V17.5" stroke="#2A2522" stroke-width="1.67"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-        <nav class="site-header__nav" aria-label="Chính">
-          <a href="/index.html">Trang chủ</a>
-          <a href="/src/pages/products/list.html" class="is-active">Sản phẩm</a>
-          <a href="#">Gợi ý AI</a>
-          <a href="#" class="js-menu-chatbot-trigger">Chatbot</a>
-          <a href="#">Blog</a>
-          <a href="#">Về chúng tôi</a>
-        </nav>
-      </div>
-    </header>
+    <load src="/src/components/header.html" />
 
     <!-- PRODUCT DETAIL MAIN -->
     <main class="product-detail-page container">
       <!-- Breadcrumbs -->
-      <nav class="product-detail-breadcrumb" aria-label="Breadcrumb">
-        <a href="/index.html">Trang chủ</a><span>/</span><a href="/src/pages/products/list.html">Đầm váy</a><span>/</span><span class="breadcrumb__current">Set đồ len</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a href="/index.html">Trang chủ</a></li>
+          <li class="breadcrumb__item"><a href="/src/pages/products/list.html">Đầm váy</a></li>
+          <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">Set đồ len</li>
+        </ol>
       </nav>
 
       <!-- Main Layout 2 Columns -->
@@ -77,25 +34,32 @@
         <!-- Left: Product Image Gallery -->
         <div class="product-detail__gallery">
           <div class="gallery-main">
-            <img src="/src/assets/images/products/detail/detail-img-1.png" alt="Set đồ len — Ảnh chính" class="gallery-main__img product-detail__main-img js-gallery-main" loading="lazy" />
+            <img src="/src/assets/images/products/detail/detail-img-1.png" alt="Set đồ len — Ảnh chính"
+              class="gallery-main__img product-detail__main-img js-gallery-main" loading="lazy" />
           </div>
           <div class="gallery-thumbs">
-            <button type="button" class="gallery-thumbs__btn active js-gallery-thumb" data-src="/src/assets/images/products/detail/detail-img-1.png" aria-label="Hình ảnh thu nhỏ 1">
+            <button type="button" class="gallery-thumbs__btn active js-gallery-thumb"
+              data-src="/src/assets/images/products/detail/detail-img-1.png" aria-label="Hình ảnh thu nhỏ 1">
               <img src="/src/assets/images/products/detail/detail-img-1.png" alt="Thu nhỏ 1" loading="lazy" />
             </button>
-            <button type="button" class="gallery-thumbs__btn js-gallery-thumb" data-src="/src/assets/images/products/detail/detail-img-2.png" aria-label="Hình ảnh thu nhỏ 2">
+            <button type="button" class="gallery-thumbs__btn js-gallery-thumb"
+              data-src="/src/assets/images/products/detail/detail-img-2.png" aria-label="Hình ảnh thu nhỏ 2">
               <img src="/src/assets/images/products/detail/detail-img-2.png" alt="Thu nhỏ 2" loading="lazy" />
             </button>
-            <button type="button" class="gallery-thumbs__btn js-gallery-thumb" data-src="/src/assets/images/products/detail/detail-img-3.png" aria-label="Hình ảnh thu nhỏ 3">
-              <div class="thumb-placeholder" style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; background: #F8F8F8;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B635D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <button type="button" class="gallery-thumbs__btn js-gallery-thumb"
+              data-src="/src/assets/images/products/detail/detail-img-3.png" aria-label="Hình ảnh thu nhỏ 3">
+              <div class="thumb-placeholder"
+                style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; background: #F8F8F8;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B635D" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                   <circle cx="8.5" cy="8.5" r="1.5"></circle>
                   <polyline points="21 15 16 10 5 21"></polyline>
                 </svg>
               </div>
             </button>
-            <button type="button" class="gallery-thumbs__btn js-gallery-thumb" data-src="/src/assets/images/products/detail/detail-img-4.png" aria-label="Hình ảnh thu nhỏ 4">
+            <button type="button" class="gallery-thumbs__btn js-gallery-thumb"
+              data-src="/src/assets/images/products/detail/detail-img-4.png" aria-label="Hình ảnh thu nhỏ 4">
               <img src="/src/assets/images/products/detail/detail-img-4.png" alt="Thu nhỏ 4" loading="lazy" />
             </button>
           </div>
@@ -108,25 +72,25 @@
               <span class="product-badge product-badge--hot">Bán chạy</span>
               <span class="product-badge product-badge--stock">Còn 34 sản phẩm</span>
             </div>
-            
+
             <h1 class="product-info__title">Set đồ len</h1>
-            
+
             <div class="product-info__rating">
               <div class="rating-stars" aria-label="Xếp hạng 4.9 trên 5 sao">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="#C97B63">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="#C97B63">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="#C97B63">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="#C97B63">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="#C97B63">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
               </div>
               <span class="rating-count">4.9 &nbsp;·&nbsp; 218 đánh giá &nbsp;·&nbsp; 1.2K đã bán</span>
@@ -140,12 +104,17 @@
 
           <!-- Options Color Selection -->
           <div class="product-option option-color">
-            <h3 class="product-option__title">Màu sắc: <span class="option-selected-label js-color-name">Đỏ rượu vang</span></h3>
+            <h3 class="product-option__title">Màu sắc: <span class="option-selected-label js-color-name">Đỏ rượu
+                vang</span></h3>
             <div class="product-option__list">
-              <button type="button" class="color-btn js-color-btn" data-color="Hồng kem" style="background: #F5E6E3;" title="Hồng kem"></button>
-              <button type="button" class="color-btn js-color-btn" data-color="Be nhạt" style="background: #EADCD9;" title="Be nhạt"></button>
-              <button type="button" class="color-btn js-color-btn" data-color="Xanh rêu" style="background: #9CB4A4;" title="Xanh rêu"></button>
-              <button type="button" class="color-btn is-selected js-color-btn" data-color="Đỏ rượu vang" style="background: #5D3A3A;" title="Đỏ rượu vang"></button>
+              <button type="button" class="color-btn js-color-btn" data-color="Hồng kem" style="background: #F5E6E3;"
+                title="Hồng kem"></button>
+              <button type="button" class="color-btn js-color-btn" data-color="Be nhạt" style="background: #EADCD9;"
+                title="Be nhạt"></button>
+              <button type="button" class="color-btn js-color-btn" data-color="Xanh rêu" style="background: #9CB4A4;"
+                title="Xanh rêu"></button>
+              <button type="button" class="color-btn is-selected js-color-btn" data-color="Đỏ rượu vang"
+                style="background: #5D3A3A;" title="Đỏ rượu vang"></button>
             </div>
           </div>
 
@@ -166,7 +135,8 @@
 
           <!-- Fit Helper Box -->
           <div class="product-fit-helper">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
@@ -178,7 +148,8 @@
             <span class="product-option__title">Số lượng</span>
             <div class="quantity-selector">
               <button type="button" class="quantity-btn js-qty-minus" aria-label="Giảm số lượng">-</button>
-              <input type="number" class="quantity-input js-qty-input" value="1" min="1" max="99" aria-label="Số lượng" />
+              <input type="number" class="quantity-input js-qty-input" value="1" min="1" max="99"
+                aria-label="Số lượng" />
               <button type="button" class="quantity-btn js-qty-plus" aria-label="Tăng số lượng">+</button>
             </div>
           </div>
@@ -186,20 +157,25 @@
           <!-- Actions Grid: Cart, Buy, Wishlist -->
           <div class="product-actions-grid">
             <div class="product-actions-main">
-              <button type="button" class="btn btn--outline add-to-cart-btn js-add-cart">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+              <button type="button" class="btn btn--outline add-to-cart-btn js-add-cart"
+                onclick="window.location.href='/src/pages/cart/cart.html'">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
                   <circle cx="9" cy="21" r="1"></circle>
                   <circle cx="20" cy="21" r="1"></circle>
                   <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>
                 Thêm vào giỏ
               </button>
-              <button type="button" class="btn btn--primary buy-now-btn">Mua ngay</button>
+              <button type="button" class="btn btn--primary buy-now-btn"
+                onclick="window.location.href='/src/pages/cart/cart.html'">Mua ngay</button>
             </div>
-            
-            <button type="button" class="btn btn--secondary wishlist-btn js-wishlist" aria-label="Thêm vào danh sách yêu thích">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.67" style="margin-right: 8px;">
-                <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z"/>
+
+            <button type="button" class="btn btn--secondary wishlist-btn js-wishlist"
+              aria-label="Thêm vào danh sách yêu thích">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.67"
+                style="margin-right: 8px;">
+                <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z" />
               </svg>
               Thêm vào yêu thích
             </button>
@@ -218,7 +194,7 @@
             </div>
             <div class="benefit-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
               </svg>
               <span>Đổi trả miễn phí trong 7 ngày</span>
             </div>
@@ -236,16 +212,21 @@
       <!-- Tabs / Descriptions details -->
       <div class="product-detail__description">
         <div class="tabs-header" role="tablist" aria-label="Thông tin sản phẩm">
-          <button type="button" class="tab-title active js-tab-btn" role="tab" aria-selected="true" aria-controls="panel-desc" id="tab-desc" data-tab="panel-desc">Mô tả</button>
-          <button type="button" class="tab-title js-tab-btn" role="tab" aria-selected="false" aria-controls="panel-size" id="tab-size" data-tab="panel-size">Bảng size</button>
-          <button type="button" class="tab-title js-tab-btn" role="tab" aria-selected="false" aria-controls="panel-reviews" id="tab-reviews" data-tab="panel-reviews">Đánh giá</button>
-          <button type="button" class="tab-title js-tab-btn" role="tab" aria-selected="false" aria-controls="panel-shipping" id="tab-shipping" data-tab="panel-shipping">Vận chuyển</button>
+          <button type="button" class="tab-title active js-tab-btn" role="tab" aria-selected="true"
+            aria-controls="panel-desc" id="tab-desc" data-tab="panel-desc">Mô tả</button>
+          <button type="button" class="tab-title js-tab-btn" role="tab" aria-selected="false" aria-controls="panel-size"
+            id="tab-size" data-tab="panel-size">Bảng size</button>
+          <button type="button" class="tab-title js-tab-btn" role="tab" aria-selected="false"
+            aria-controls="panel-reviews" id="tab-reviews" data-tab="panel-reviews">Đánh giá</button>
+          <button type="button" class="tab-title js-tab-btn" role="tab" aria-selected="false"
+            aria-controls="panel-shipping" id="tab-shipping" data-tab="panel-shipping">Vận chuyển</button>
         </div>
-        
+
         <div class="tabs-content">
           <!-- Tab Panel: Mô tả -->
           <div class="tab-panel active js-tab-panel" id="panel-desc" role="tabpanel" aria-labelledby="tab-desc">
-            <p>Set đồ len được làm từ chất liệu linen D1 cao cấp, mềm mại, thoáng mát và giữ dáng tốt. Thiết kế tay phồng nhẹ tạo điểm nhấn nữ tính, vô cùng thanh lịch phù hợp với mọi vóc dáng.</p>
+            <p>Set đồ len được làm từ chất liệu linen D1 cao cấp, mềm mại, thoáng mát và giữ dáng tốt. Thiết kế tay
+              phồng nhẹ tạo điểm nhấn nữ tính, vô cùng thanh lịch phù hợp với mọi vóc dáng.</p>
             <ul>
               <li>Chất liệu: 100% linen tự nhiên</li>
               <li>Phom dáng: Nhẹ nhàng, tinh tế, dễ phối</li>
@@ -253,7 +234,7 @@
               <li>Bảo quản: Giặt tay với nước lạnh, không sấy</li>
             </ul>
           </div>
-          
+
           <!-- Tab Panel: Bảng size -->
           <div class="tab-panel js-tab-panel" id="panel-size" role="tabpanel" aria-labelledby="tab-size">
             <table class="specs-table">
@@ -305,27 +286,42 @@
               </tbody>
             </table>
           </div>
-          
+
           <!-- Tab Panel: Đánh giá -->
           <div class="tab-panel js-tab-panel" id="panel-reviews" role="tabpanel" aria-labelledby="tab-reviews">
             <div class="reviews-header">
               <h2 class="reviews-header__title">Đánh giá khách hàng</h2>
               <button type="button" class="reviews-header__btn">Xem tất cả</button>
             </div>
-            
+
             <div class="reviews-summary-box">
               <div class="reviews-summary__left">
                 <span class="reviews-summary__title">Số sao</span>
                 <div class="rating-stars">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C97B63" stroke-width="2"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C97B63" stroke-width="2">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
                 </div>
                 <span class="reviews-summary__subtitle">Tổng số đánh giá</span>
               </div>
-              
+
               <div class="reviews-summary__right">
                 <div class="rating-bar-item">
                   <span class="rating-bar__label">5 ★</span>
@@ -364,7 +360,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="reviews-list">
               <article class="review-item">
                 <div class="review-item__head">
@@ -372,11 +368,26 @@
                   <span class="review-item__date">Thời gian đánh giá</span>
                 </div>
                 <div class="rating-stars" style="margin-bottom: 12px;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#C97B63">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
                 </div>
                 <p class="review-item__text">Set đồ mặc lên rất đjep, mình đã ghé shop nhiều lần sẽ ủng hộ thêm</p>
                 <div class="review-item__gallery">
@@ -403,9 +414,12 @@
           <div class="tab-panel js-tab-panel" id="panel-shipping" role="tabpanel" aria-labelledby="tab-shipping">
             <p>Velura cam kết giao hàng nhanh chóng toàn quốc với các chính sách ưu đãi:</p>
             <ul>
-              <li><strong>Miễn phí vận chuyển:</strong> Áp dụng cho mọi đơn hàng có giá trị thanh toán từ 500.000₫ trở lên.</li>
-              <li><strong>Thời gian giao hàng:</strong> Từ 1-3 ngày làm việc đối với khu vực nội thành TP.HCM/Hà Nội, và từ 3-5 ngày đối với khu vực tỉnh thành khác.</li>
-              <li><strong>Đơn vị vận chuyển:</strong> Các đối tác uy tín như Giao Hàng Tiết Kiệm, GrabExpress, Viettel Post.</li>
+              <li><strong>Miễn phí vận chuyển:</strong> Áp dụng cho mọi đơn hàng có giá trị thanh toán từ 500.000₫ trở
+                lên.</li>
+              <li><strong>Thời gian giao hàng:</strong> Từ 1-3 ngày làm việc đối với khu vực nội thành TP.HCM/Hà Nội, và
+                từ 3-5 ngày đối với khu vực tỉnh thành khác.</li>
+              <li><strong>Đơn vị vận chuyển:</strong> Các đối tác uy tín như Giao Hàng Tiết Kiệm, GrabExpress, Viettel
+                Post.</li>
             </ul>
           </div>
         </div>
@@ -421,7 +435,7 @@
               <img class="card__img" src="/src/assets/images/product-2.png" alt="Đầm midi cổ V" loading="lazy" />
               <button class="card__wishlist-btn" type="button" aria-label="Yêu thích">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.67">
-                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z"/>
+                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z" />
                 </svg>
               </button>
             </div>
@@ -444,7 +458,7 @@
               <img class="card__img" src="/src/assets/images/product-3.png" alt="Áo blouse tay loe" loading="lazy" />
               <button class="card__wishlist-btn" type="button" aria-label="Yêu thích">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.67">
-                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z"/>
+                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z" />
                 </svg>
               </button>
             </div>
@@ -464,8 +478,10 @@
           <!-- Product 3 (Related - Placeholder) -->
           <article class="card card--product">
             <div class="card__image-container" style="position: relative;">
-              <div class="card-placeholder" style="display: flex; align-items: center; justify-content: center; position: absolute; inset: 0; background: #F8F8F8;">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B635D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <div class="card-placeholder"
+                style="display: flex; align-items: center; justify-content: center; position: absolute; inset: 0; background: #F8F8F8;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B635D" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                   <circle cx="8.5" cy="8.5" r="1.5"></circle>
                   <polyline points="21 15 16 10 5 21"></polyline>
@@ -473,7 +489,7 @@
               </div>
               <button class="card__wishlist-btn" type="button" aria-label="Yêu thích">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.67">
-                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z"/>
+                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z" />
                 </svg>
               </button>
             </div>
@@ -496,7 +512,7 @@
               <img class="card__img" src="/src/assets/images/product-1.png" alt="Áo khoác trench" loading="lazy" />
               <button class="card__wishlist-btn" type="button" aria-label="Yêu thích">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.67">
-                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z"/>
+                  <path d="M10 17.5l-5.83-5.83a4.17 4.17 0 115.83-5.83 4.17 4.17 0 115.83 5.83L10 17.5z" />
                 </svg>
               </button>
             </div>
@@ -517,89 +533,23 @@
     </main>
 
     <!-- SITE FOOTER -->
-    <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <div class="site-footer__grid">
-          <div class="site-footer__brand">
-            <p class="font-display">Velura</p>
-            <p>Thời trang thông minh cho phái đẹp hiện đại</p>
-            <div class="site-footer__social">
-              <a href="#" aria-label="Facebook">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="Instagram">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4>Liên kết nhanh</h4>
-            <ul>
-              <li><a href="/index.html">Trang chủ</a></li>
-              <li><a href="/src/pages/products/list.html">Sản phẩm</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Về chúng tôi</a></li>
-              <li><a href="#">Liên hệ</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Hỗ trợ</h4>
-            <ul>
-              <li><a href="#">Đơn hàng của tôi</a></li>
-              <li><a href="#">Theo dõi đơn hàng</a></li>
-              <li><a href="#">Trả hàng &amp; Hoàn tiền</a></li>
-              <li><a href="#">Chính sách</a></li>
-              <li><a href="#">Câu hỏi thường gặp</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Liên hệ</h4>
-            <ul class="site-footer__contact">
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span>123 Nguyễn Huệ, Q.1, TP.HCM</span>
-              </li>
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                <span>1900 xxxx</span>
-              </li>
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <span>hello@velura.vn</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <p class="site-footer__bottom">&copy; 2026 Velura. Bản quyền thuộc về Velura Fashion.</p>
-      </div>
-    </footer>
+    <load src="/src/components/footer.html" />
   </div>
-  
+
   <!-- CHATBOT WIDGET -->
   <div class="chatbot-widget">
     <button class="chatbot-toggler js-chatbot-toggle" type="button" aria-label="Mở khung chat">
-      <svg class="chatbot-toggler__icon-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="chatbot-toggler__icon-chat" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
       </svg>
-      <svg class="chatbot-toggler__icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="chatbot-toggler__icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    
+
     <div class="chatbot-box">
       <div class="chatbot-header">
         <div class="chatbot-header__info">
@@ -618,25 +568,39 @@
             <option value="user">User Mode</option>
           </select>
         </div>
+
+        <a class="chatbot-header__expand" href="/src/pages/chatbot.html" aria-label="Phóng to">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+        </a>
         <button class="chatbot-header__close js-chatbot-toggle" type="button" aria-label="Đóng khung chat">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
-      
+
       <div class="chatbot-messages">
         <div class="chatbot-message chatbot-message--bot">
-          <div class="chatbot-message__text">Chào bạn! Tôi là AI Stylist của Velura. Tôi có thể giúp gì cho bạn trong việc lựa chọn phong cách hôm nay?</div>
+          <div class="chatbot-message__text">Chào bạn! Tôi là AI Stylist của Velura. Tôi có thể giúp gì cho bạn trong
+            việc lựa chọn phong cách hôm nay?</div>
           <span class="chatbot-message__time">17:05</span>
         </div>
       </div>
-      
+
       <form class="chatbot-input-area js-chatbot-form" data-prevent-submit>
-        <input class="chatbot-input js-chatbot-input" type="text" placeholder="Viết tin nhắn..." aria-label="Nội dung chat" />
+        <input class="chatbot-input js-chatbot-input" type="text" placeholder="Viết tin nhắn..."
+          aria-label="Nội dung chat" />
         <button class="chatbot-send-btn" type="submit" aria-label="Gửi tin nhắn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
@@ -651,20 +615,23 @@
     <div class="search-overlay__container">
       <div class="search-overlay__header">
         <div class="search-overlay__search-box">
-          <svg class="search-overlay__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="search-overlay__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input class="search-overlay__input js-search-overlay-input" type="text" placeholder="Tìm kiếm sản phẩm, danh mục..." aria-label="Tìm kiếm trong cửa hàng" />
+          <input class="search-overlay__input js-search-overlay-input" type="text"
+            placeholder="Tìm kiếm sản phẩm, danh mục..." aria-label="Tìm kiếm trong cửa hàng" />
         </div>
         <button class="search-overlay__close js-search-close" type="button" aria-label="Đóng tìm kiếm">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
-      
+
       <div class="search-overlay__content">
         <div class="search-overlay__row">
           <div class="search-overlay__left-col">
@@ -690,4 +657,5 @@
 
   <script type="module" src="/src/scripts/main.js"></script>
 </body>
+
 </html>
